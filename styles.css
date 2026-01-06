@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-  color: #D4CABF;
+  color: #EAEDEC;
   font-family: 'Tourney', sans-serif;
   font-size: 72px;
   margin-bottom: -10px;
@@ -22,9 +22,9 @@ h1 {
 }
 
 h2 {
-  color: #EBA85B;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 37px;
+  color: #EAEDEC;
+  font-family: 'libre-franklin', sans-serif;
+  font-size: 42px;
   margin-top: 0;
   margin-bottom: 0;
 }
