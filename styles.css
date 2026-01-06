@@ -3,7 +3,11 @@ html {
 }
 
 body {
-  background-color: #3A3A3B;
+    background: repeating-linear-gradient(
+        to bottom,
+        #afc1d3 0 16px,
+        #afbcda 16px 32px
+    );
   box-shadow: inset 0 0 25px 10px rgba(0, 0, 0, 0.4);
   min-height: 100vh;
   margin: 0;
@@ -12,6 +16,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+/* Striped background now applied to `body` using repeating-linear-gradient above. */
 
 h1 {
   color: #EAEDEC;
@@ -30,17 +36,17 @@ h2 {
 }
 
 h3 {
-  color: #EBA85B;
+  color: #EAEDEC;
   text-align: center;
 }
 
 label {
-  color: #ebe1d7;
+  color: #EAEDEC;
   font-size: 10px;
 }
 
 p {
-  color: #ebe1d7;
+  color: #EAEDEC;
 }
 
 #main-header {
@@ -73,7 +79,7 @@ p {
 }
 
 .control-box {
-    background-color: #36436A;
+    background-color: #717682;
     border: 5px solid #313236;
     padding: 10px;
     border-radius: 10px;
@@ -145,8 +151,8 @@ input[type="range"] {
 /* Styling for the MIDI output selection box */
 #midi-output-select {
     width: 250px;
-    background-color: #514109;
-    color: #B3B953;
+    background-color: #262B30;
+    color: #51E7FF;
     font-family: 'VT323', monospace;
     font-size: 1.2em;
     border: 5px solid #313236;
