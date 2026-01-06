@@ -1,0 +1,288 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #3A3A3B;
+  box-shadow: inset 0 0 25px 10px rgba(0, 0, 0, 0.4);
+  min-height: 100vh;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #D4CABF;
+  font-family: 'Tourney', sans-serif;
+  font-size: 72px;
+  margin-bottom: -10px;
+  font-weight: 400;
+}
+
+h2 {
+  color: #EBA85B;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 37px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  color: #EBA85B;
+  text-align: center;
+}
+
+label {
+  color: #ebe1d7;
+  font-size: 10px;
+}
+
+p {
+  color: #ebe1d7;
+}
+
+#main-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    max-width: 1280px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#header-block {  /* The main title */
+    text-align: left;
+    margin-left: 10px;
+}
+
+#header-block, #header-spacer {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1280px;
+    padding: 10px;
+}
+
+.control-box {
+    background-color: #36436A;
+    border: 5px solid #313236;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    margin: 10px;
+}
+
+.control-box h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    background-color: #313236;
+}
+
+.parameter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+input[type="range"] {
+    width: 90px; 
+}
+
+
+/* --- Tooltip Styling --- */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width:max-content;
+    background-color: #201c13;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 10;
+    bottom: 100%;
+    right: 100%;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: -10%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #201c1300;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- End of Tooltip Styling --- */
+
+/* Styling for the MIDI output selection box */
+#midi-output-select {
+    width: 250px;
+    background-color: #514109;
+    color: #B3B953;
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+    border: 5px solid #313236;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Centering the MIDI device selection */
+#midi-status {
+    display: flex;
+    flex-direction: column; /* Stack the label and select box vertically */
+    align-items: center; /* Center the stacked items horizontally */
+    margin-top: 20px;
+}
+
+/* Add space below the label within the MIDI status block */
+#midi-status label {
+    margin-bottom: 8px;
+}
+
+#patch-controls {
+    display: flex;
+    gap: 15px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.patch-button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.patch-button-group label {
+    margin-bottom: 8px;
+}
+
+/* Style for the buttons themselves */
+#init-patch-button, #random-patch-button {
+    background-color: #313236;
+    color: #ebe1d7;
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+    border: 5px solid #313236; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#init-patch-button:hover, #random-patch-button:hover {
+    background-color: #925C07; 
+}
+
+/* New style to highlight the active OSC2 PWM control */
+.active-control {
+    /* Apply underline */
+    text-decoration: underline;
+    /* You might also want to change the color for emphasis */
+    color: #EBA85B !important; 
+}
+
+/* --- NEW MEDIA QUERY FOR MOBILE VIEW --- */
+@media (max-width: 768px) {
+
+    /* Floating Screen bar */
+    #midi-status {
+        position: fixed; /* Makes it float relative to the viewport */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; 
+        
+        /* Compact/Horizontal layout */
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        
+        /* Appearance */
+        background-color: #36436A;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        padding: 10px 0; 
+        margin: 0;
+    }
+
+    /* Hide the MIDI device label on mobile to save space on the floating bar */
+    #midi-status label {
+        display: none;
+    }
+
+    body {
+        padding-top: 40px;
+    }
+    
+    /* 1. Stack the three main header sections vertically */
+    #main-header {
+        flex-direction: column;
+        /* Remove space-around and use flex-start for a tight stack, 
+           then center the content within the header */
+        justify-content: flex-start; 
+        align-items: center; /* Center the entire header block */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+
+    /* 2. Ensure each block is full width (or nearly full) and centered */
+    #header-block,
+    /* #midi-status, */
+    #patch-controls {
+        width: 90%; /* Take up the full width of the main-header */
+        margin: 10px 0; /* Add vertical spacing between stacked elements */
+        text-align: center; /* Center text inside the header block */
+        
+        /* Optional: Center the button groups horizontally within their block */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* 3. Adjust specific inner elements to ensure they stack/center correctly */
+    
+    /* Center the buttons within the patch-controls group */
+    #patch-controls {
+        flex-direction: row;
+        gap: 15px; /* Remove horizontal gap when stacked */
+        justify-content: center; /* <<< THIS IS THE CRITICAL ADDITION */
+        width: 100%;
+    }
+    
+    /* Center the individual button groups and add vertical margin */
+    .patch-button-group {
+        margin: 0; 
+        width: auto; /* Allow content to dictate width */
+    }
+}
