@@ -5,8 +5,8 @@ html {
 body {
     background: repeating-linear-gradient(
         to bottom,
-        #68B3D3 0 16px,
-        #76b6d1 16px 32px
+        #7cb9d3 0 16px,
+        #90bfd3 16px 32px
     );
 
     background-size: 100% 20px;
@@ -28,6 +28,7 @@ h1 {
   font-size: 72px;
   margin-bottom: -10px;
   font-weight: 400;
+   -webkit-text-stroke: 2px black; /* width and color */
 }
 
 h2 {
@@ -36,6 +37,7 @@ h2 {
   font-size: 42px;
   margin-top: 0;
   margin-bottom: 0;
+   -webkit-text-stroke: 2px black; /* width and color */
 }
 
 h3 {
@@ -73,6 +75,11 @@ p {
     flex-shrink: 0;
 }
 
+/* the black text on the top line */
+.outerLabel {
+    color: #202020;
+}
+
 #controls {
     display: flex;
     flex-wrap: wrap;
@@ -83,9 +90,9 @@ p {
 
 .control-box {
     background-color: #717682;
-    border: 5px solid #313236;
+    border: 3px solid #585c64;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
     min-width: 200px;
     margin: 10px;
