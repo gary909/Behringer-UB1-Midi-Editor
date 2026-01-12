@@ -111,8 +111,11 @@ p {
     margin-bottom: 8px;
 }
 
+/* SLIDER STYLING */
 input[type="range"] {
     width: 90px; 
+    /* writing-mode: vertical-lr; */
+    accent-color: #3c496b; 
 }
 
 
@@ -217,7 +220,7 @@ input[type="range"] {
 }
 
 #init-patch-button:hover, #random-patch-button:hover {
-    background-color: #925C07; 
+    background-color: #349db4; 
 }
 
 /* New style to highlight the active OSC2 PWM control */
