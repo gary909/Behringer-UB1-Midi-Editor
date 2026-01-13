@@ -43,6 +43,8 @@ h2 {
 h3 {
   color: #EAEDEC;
   text-align: center;
+  font-family: 'libre-franklin', sans-serif;
+  font-weight: 400;
 }
 
 label {
