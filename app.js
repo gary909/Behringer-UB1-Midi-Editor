@@ -170,6 +170,31 @@ function getOscPWName(value) {
     return `OSC 1 PULSE WIDTH: ${value}%`;
 }
 
+// --- OSC 2 FEEDBACK HELPERS ---
+
+function getOsc2WaveName(value) {
+    if (value <= 31) return 'OSC 2: OFF';
+    if (value <= 63) return 'OSC 2: SAWTOOTH';
+    if (value <= 95) return 'OSC 2: TRIANGLE';
+    return 'OSC 2: SQUARE';
+}
+
+function getOsc2CoarseName(value) {
+    // Range 0-99, center 50
+    const semitones = value - 50;
+    const sign = semitones > 0 ? '+' : '';
+    return `OSC 2 COARSE: ${sign}${semitones} ST`;
+}
+
+function getOsc2FineName(value) {
+    const detune = value - 50;
+    return `OSC 2 FINE: ${detune}`;
+}
+
+function getOsc2PWName(value) {
+    return `OSC 2 PULSE WIDTH: ${value}%`;
+}
+
 // ---------------------------------------------------------------------------- //
 // --- INITIALIZATION ---
 if (navigator.requestMIDIAccess) {
@@ -242,6 +267,7 @@ function onMIDISuccess(midiAccess) {
     attachSlider(CC_ARP_GATE, 'arp-gate');
     attachSlider(CC_ARP_SWING, 'arp-swing');
 
+    // ---------------------------------------------------------------------------- //  
     // Osc Common Checkboxes
     const duoCheck = document.getElementById('osc-duo');
     if (duoCheck) {
@@ -269,13 +295,7 @@ function onMIDISuccess(midiAccess) {
     // Levels (Standard numeric feedback)
     attachSlider(CC_AUX_LEVEL, 'osc-aux-level');
     attachSlider(CC_NOISE_LEVEL, 'osc-noise');
-
-    // ['osc1', 'osc2'].forEach(prefix => {
-    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_WAVE`), `${prefix}-wave`);
-    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_FINE`), `${prefix}-fine`);
-    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_COARSE`), `${prefix}-coarse`);
-    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_PW`), `${prefix}-pw`);
-    // });
+    // ---------------------------------------------------------------------------- //
 
     // --- OSC 1 LISTENERS ---
     // Waveform
@@ -287,6 +307,19 @@ function onMIDISuccess(midiAccess) {
 
     // Pulse Width
     attachSlider(CC_OSC1_PW, 'osc1-pw', getOscPWName);
+    // ---------------------------------------------------------------------------- //
+
+    // --- OSC 2 LISTENERS ---
+    // Waveform selection
+    attachSlider(CC_OSC2_WAVE, 'osc2-wave', getOsc2WaveName);
+
+    // Pitch Tuning (Coarse & Fine)
+    attachSlider(CC_OSC2_COARSE, 'osc2-coarse', getOsc2CoarseName);
+    attachSlider(CC_OSC2_FINE, 'osc2-fine', getOsc2FineName);
+
+    // Pulse Width / PWM
+    attachSlider(CC_OSC2_PW, 'osc2-pw', getOsc2PWName);
+    // ---------------------------------------------------------------------------- //
 
     // LFOs, Filter, VCA, EGs
     attachSlider(CC_LFO1_WAVE, 'lfo1-wave'); attachSlider(CC_LFO1_AMT, 'lfo1-amt'); attachSlider(CC_LFO1_RATE, 'lfo1-rate');
