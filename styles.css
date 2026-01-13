@@ -202,6 +202,17 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+.envelope-diagram {
+    display: block;      /* Required for margin: auto to work */
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;        /* Makes the image span the width of the control box */
+    height: auto;       /* Maintains aspect ratio */
+    margin-bottom: 10px; /* Space between image and the "VCA EG" text */
+    border-radius: 4px; /* Optional: matches your box styling */
+    opacity: 0.9;       /* Optional: softens the image to match the UI */
+}
+
 
 
 .patch-button-group {

@@ -157,7 +157,42 @@
 
         </div>
 
+        <!-- FILTER -->
+        <div class="control-box">
+            <h3>FILTER</h3>
+            <div class="parameter-row">
+                <div class="tooltip">
+                    <label for="vcf-cutoff">CUTOFF FREQ</label>
+                    <span class="tooltiptext">MIDI CC 74</span>
+                </div> 
+                <input type="range" id="vcf-cutoff" min="0" max="99">
+            </div>
 
+            <div class="parameter-row">
+                <div class="tooltip">
+                    <label for="vcf-resonance">RESONANCE</label>
+                    <span class="tooltiptext">MIDI CC 71</span>
+                </div> 
+                <input type="range" id="vcf-res" min="0" max="99">
+            </div>    
+
+            <div class="parameter-row">
+                <div class="tooltip">
+                    <label for="vcf-env-amount">VCF ENV AMOUNT</label>
+                    <span class="tooltiptext">MIDI CC 3</span>
+                </div> 
+                <input type="range" id="vcf-env-amt" min="0" max="99">
+            </div>  
+            
+            <div class="parameter-row">
+                <div class="tooltip">
+                    <label for="vcf-env-amount">VCF OSC 2 AMOUNT</label>
+                    <span class="tooltiptext">MIDI CC 20</span>
+                </div> 
+                <input type="range" id="vcf-osc2-amt" min="0" max="99">
+            </div>  
+
+        </div>
         
 
         <!-- LFO 1 -->
@@ -218,42 +253,7 @@
             </div>            
         </div>
 
-        <!-- FILTER -->
-        <div class="control-box">
-            <h3>FILTER</h3>
-            <div class="parameter-row">
-                <div class="tooltip">
-                    <label for="vcf-cutoff">CUTOFF FREQ</label>
-                    <span class="tooltiptext">MIDI CC 74</span>
-                </div> 
-                <input type="range" id="vcf-cutoff" min="0" max="99">
-            </div>
 
-            <div class="parameter-row">
-                <div class="tooltip">
-                    <label for="vcf-resonance">RESONANCE</label>
-                    <span class="tooltiptext">MIDI CC 71</span>
-                </div> 
-                <input type="range" id="vcf-res" min="0" max="99">
-            </div>    
-
-            <div class="parameter-row">
-                <div class="tooltip">
-                    <label for="vcf-env-amount">VCF ENV AMOUNT</label>
-                    <span class="tooltiptext">MIDI CC 3</span>
-                </div> 
-                <input type="range" id="vcf-env-amt" min="0" max="99">
-            </div>  
-            
-            <div class="parameter-row">
-                <div class="tooltip">
-                    <label for="vcf-env-amount">VCF OSC 2 AMOUNT</label>
-                    <span class="tooltiptext">MIDI CC 20</span>
-                </div> 
-                <input type="range" id="vcf-osc2-amt" min="0" max="99">
-            </div>  
-
-        </div>
 
         <!-- VCA -->
         <div class="control-box">
@@ -279,6 +279,7 @@
         <!-- VCA EG -->
         <div class="control-box">
             <h3>VCA EG</h3>
+            <img src="media/ADSR.png" alt="ADSR Envelope Diagram" class="envelope-diagram">
             <div class="parameter-row">                
                 <div class="tooltip">
                     <label for="vca-attack">ATTACK</label>
@@ -316,6 +317,7 @@
         <!-- VCF EG -->
         <div class="control-box">
             <h3>VCF EG</h3>
+            <img src="media/ADSR.png" alt="ADSR Envelope Diagram" class="envelope-diagram">
             <div class="parameter-row">                
                 <div class="tooltip">
                     <label for="vca-attack">ATTACK</label>
