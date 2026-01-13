@@ -195,6 +195,21 @@ function getOsc2PWName(value) {
     return `OSC 2 PULSE WIDTH: ${value}%`;
 }
 
+// --- LFO 1 FEEDBACK HELPERS ---
+function getLfo1WaveName(value) {
+    if (value <= 42) return 'LFO 1 WAVE: SAWTOOTH';
+    if (value <= 85) return 'LFO 1 WAVE: TRIANGLE';
+    return 'LFO 1 WAVE: SQUARE';
+}
+
+function getLfo1AmtName(value) {
+    return `LFO 1 AMOUNT: ${value}`;
+}
+
+function getLfo1RateName(value) {
+    return `LFO 1 RATE: ${value}`;
+}
+
 // ---------------------------------------------------------------------------- //
 // --- INITIALIZATION ---
 if (navigator.requestMIDIAccess) {
@@ -321,8 +336,19 @@ function onMIDISuccess(midiAccess) {
     attachSlider(CC_OSC2_PW, 'osc2-pw', getOsc2PWName);
     // ---------------------------------------------------------------------------- //
 
+    // --- LFO 1 LISTENERS ---
+    // Waveform
+    attachSlider(CC_LFO1_WAVE, 'lfo1-wave', getLfo1WaveName);
+
+    // Amount (Intensity)
+    attachSlider(CC_LFO1_AMT, 'lfo1-amt', getLfo1AmtName);
+
+    // Rate (Speed)
+    attachSlider(CC_LFO1_RATE, 'lfo1-rate', getLfo1RateName);
+    // ---------------------------------------------------------------------------- //
+
     // LFOs, Filter, VCA, EGs
-    attachSlider(CC_LFO1_WAVE, 'lfo1-wave'); attachSlider(CC_LFO1_AMT, 'lfo1-amt'); attachSlider(CC_LFO1_RATE, 'lfo1-rate');
+    
     attachSlider(CC_LFO2_WAVE, 'lfo2-wave'); attachSlider(CC_LFO2_AMT, 'lfo2-amt'); attachSlider(CC_LFO2_RATE, 'lfo2-rate');
     attachSlider(CC_VCF_CUTOFF, 'vcf-cutoff'); attachSlider(CC_VCF_RES, 'vcf-res');
     attachSlider(CC_VCF_ENV_AMT, 'vcf-env-amt'); attachSlider(CC_VCF_OSC2_AMT, 'vcf-osc2-amt');
