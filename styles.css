@@ -120,7 +120,6 @@ input[type="range"] {
     accent-color: #3c496b; 
 }
 
-
 /* --- Tooltip Styling --- */
 .tooltip {
     position: relative;
@@ -202,6 +201,8 @@ input[type="checkbox"] {
     height: 16px;
     cursor: pointer;
 }
+
+
 
 .patch-button-group {
     display: flex;
