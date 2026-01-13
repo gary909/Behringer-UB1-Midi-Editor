@@ -93,7 +93,16 @@ const ALL_PATCH_CONTROLS = [
     { id: 'vcf-s', cc: CC_VCF_S, value: 0 }, { id: 'vcf-r', cc: CC_VCF_R, value: 10 }
 ];
 
+// ---------------------------------------------------------------------------- //
 // --- ARPEGGIATOR HELPERS ---
+function getArpEnableName(value) {
+    return value >= 64 ? 'ARP: ON' : 'ARP: OFF';
+}
+
+function getArpHoldName(value) {
+    return value >= 64 ? 'ARP HOLD: ON' : 'ARP HOLD: OFF';
+}
+
 function getArpScaleName(value) {
     if (value <= 21) return 'SCALE: 1/4';
     if (value <= 42) return 'SCALE: 1/4 T';
@@ -115,6 +124,53 @@ function getArpClockName(value) {
     return 'CLOCK: MIDI';
 }
 
+// --- OSC COMMON HELPERS ---
+function getDuoModeName(value) {
+    return value >= 64 ? 'DUO MODE: ON' : 'DUO MODE: OFF';
+}
+
+function getDCOSyncName(value) {
+    return value >= 64 ? 'DCO SYNC: ON' : 'DCO SYNC: OFF';
+}
+
+function getAuxTypeName(value) {
+    return value <= 63 ? 'AUX: NOISE' : 'AUX: SUB';
+}
+
+function getOctaveName(value) {
+    if (value <= 25) return 'OCTAVE: -2';
+    if (value <= 51) return 'OCTAVE: -1';
+    if (value <= 76) return 'OCTAVE: 0';
+    if (value <= 102) return 'OCTAVE: +1';
+    return 'OCTAVE: +2';
+}
+
+// --- OSC 1 FEEDBACK HELPERS ---
+function getOscWaveName(value) {
+    if (value <= 31) return 'OSC 1: OFF';
+    if (value <= 63) return 'OSC 1: SAWTOOTH';
+    if (value <= 95) return 'OSC 1: TRIANGLE';
+    return 'OSC 1: SQUARE';
+}
+
+function getOscCoarseName(value) {
+    // Assuming 0-99 range from manual, centered at 50 for 0 pitch shift
+    const semitones = value - 50;
+    const sign = semitones > 0 ? '+' : '';
+    return `OSC 1 COARSE: ${sign}${semitones} ST`;
+}
+
+function getOscFineName(value) {
+    // Centered at 50
+    const detune = value - 50;
+    return `OSC 1 FINE: ${detune}`;
+}
+
+function getOscPWName(value) {
+    return `OSC 1 PULSE WIDTH: ${value}%`;
+}
+
+// ---------------------------------------------------------------------------- //
 // --- INITIALIZATION ---
 if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
@@ -158,8 +214,27 @@ function onMIDISuccess(midiAccess) {
     };
 
     // Arpeggiator
-    attachCheck(CC_ARP_ENABLE, 'arp-enable');
-    attachCheck(CC_ARP_HOLD, 'arp-hold');
+    // Arpeggiator On/Off feedback
+    const arpEnable = document.getElementById('arp-enable');
+    if (arpEnable && statusElement) {
+        arpEnable.addEventListener('change', (e) => {
+            const val = e.target.checked ? 127 : 0;
+            sendMidiCC(CC_ARP_ENABLE, val);
+            // Show the status on the "screen"
+            statusElement.options[statusElement.selectedIndex].textContent = getArpEnableName(val);
+        });
+    }
+
+    // Arpeggiator Hold feedback
+    const arpHold = document.getElementById('arp-hold');
+    if (arpHold && statusElement) {
+        arpHold.addEventListener('change', (e) => {
+            const val = e.target.checked ? 127 : 0;
+            sendMidiCC(CC_ARP_HOLD, val);
+            // Show the status on the "screen"
+            statusElement.options[statusElement.selectedIndex].textContent = getArpHoldName(val);
+        });
+    }
     attachSlider(CC_ARP_SCALE, 'arp-scale', getArpScaleName);
     attachSlider(CC_ARP_TYPE, 'arp-type', getArpTypeName);
     attachSlider(CC_ARP_CLOCK, 'arp-clock-source', getArpClockName);
@@ -167,19 +242,51 @@ function onMIDISuccess(midiAccess) {
     attachSlider(CC_ARP_GATE, 'arp-gate');
     attachSlider(CC_ARP_SWING, 'arp-swing');
 
-    // Osc Common & Per-Osc
-    attachCheck(CC_DUO_MODE, 'osc-duo');
-    attachCheck(CC_DCO_SYNC, 'osc-sync');
-    attachSlider(CC_OCTAVE, 'osc-octave');
-    attachSlider(CC_AUX_TYPE, 'osc-aux-type');
+    // Osc Common Checkboxes
+    const duoCheck = document.getElementById('osc-duo');
+    if (duoCheck) {
+        duoCheck.addEventListener('change', (e) => {
+            const val = e.target.checked ? 127 : 0;
+            sendMidiCC(CC_DUO_MODE, val);
+            statusElement.options[statusElement.selectedIndex].textContent = getDuoModeName(val);
+            // Reset status text after a moment if you prefer, or leave it
+        });
+    }
+
+    const syncCheck = document.getElementById('osc-sync');
+    if (syncCheck) {
+        syncCheck.addEventListener('change', (e) => {
+            const val = e.target.checked ? 127 : 0;
+            sendMidiCC(CC_DCO_SYNC, val);
+            statusElement.options[statusElement.selectedIndex].textContent = getDCOSyncName(val);
+        });
+    }
+
+    // Osc Common Sliders
+    attachSlider(CC_OCTAVE, 'osc-octave', getOctaveName);
+    attachSlider(CC_AUX_TYPE, 'osc-aux-type', getAuxTypeName);
+
+    // Levels (Standard numeric feedback)
     attachSlider(CC_AUX_LEVEL, 'osc-aux-level');
     attachSlider(CC_NOISE_LEVEL, 'osc-noise');
-    ['osc1', 'osc2'].forEach(prefix => {
-        attachSlider(eval(`CC_${prefix.toUpperCase()}_WAVE`), `${prefix}-wave`);
-        attachSlider(eval(`CC_${prefix.toUpperCase()}_FINE`), `${prefix}-fine`);
-        attachSlider(eval(`CC_${prefix.toUpperCase()}_COARSE`), `${prefix}-coarse`);
-        attachSlider(eval(`CC_${prefix.toUpperCase()}_PW`), `${prefix}-pw`);
-    });
+
+    // ['osc1', 'osc2'].forEach(prefix => {
+    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_WAVE`), `${prefix}-wave`);
+    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_FINE`), `${prefix}-fine`);
+    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_COARSE`), `${prefix}-coarse`);
+    //     attachSlider(eval(`CC_${prefix.toUpperCase()}_PW`), `${prefix}-pw`);
+    // });
+
+    // --- OSC 1 LISTENERS ---
+    // Waveform
+    attachSlider(CC_OSC1_WAVE, 'osc1-wave', getOscWaveName);
+
+    // Pitch Tuning
+    attachSlider(CC_OSC1_COARSE, 'osc1-coarse', getOscCoarseName);
+    attachSlider(CC_OSC1_FINE, 'osc1-fine', getOscFineName);
+
+    // Pulse Width
+    attachSlider(CC_OSC1_PW, 'osc1-pw', getOscPWName);
 
     // LFOs, Filter, VCA, EGs
     attachSlider(CC_LFO1_WAVE, 'lfo1-wave'); attachSlider(CC_LFO1_AMT, 'lfo1-amt'); attachSlider(CC_LFO1_RATE, 'lfo1-rate');
