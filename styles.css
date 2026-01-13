@@ -196,6 +196,13 @@ input[type="range"] {
     flex-shrink: 0;
 }
 
+input[type="checkbox"] {
+    accent-color: #3C496B; /* Replace with your preferred hex color */
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
 .patch-button-group {
     display: flex;
     flex-direction: column;
