@@ -90,7 +90,17 @@ const ALL_PATCH_CONTROLS = [
     { id: 'vca-a', cc: CC_VCA_A, value: 0 }, { id: 'vca-d', cc: CC_VCA_D, value: 20 },
     { id: 'vca-s', cc: CC_VCA_S, value: 127 }, { id: 'vca-r', cc: CC_VCA_R, value: 10 },
     { id: 'vcf-a', cc: CC_VCF_A, value: 0 }, { id: 'vcf-d', cc: CC_VCF_D, value: 20 },
-    { id: 'vcf-s', cc: CC_VCF_S, value: 0 }, { id: 'vcf-r', cc: CC_VCF_R, value: 10 }
+    { id: 'vcf-s', cc: CC_VCF_S, value: 0 }, { id: 'vcf-r', cc: CC_VCF_R, value: 10 },
+
+    // LFO 1
+    { id: 'lfo1-wave', cc: CC_LFO1_WAVE, value: 0 },
+    { id: 'lfo1-amt', cc: CC_LFO1_AMT, value: 0 },
+    { id: 'lfo1-rate', cc: CC_LFO1_RATE, value: 64 },
+
+    // LFO 2
+    { id: 'lfo2-wave', cc: CC_LFO2_WAVE, value: 0 },
+    { id: 'lfo2-amt', cc: CC_LFO2_AMT, value: 0 },
+    { id: 'lfo2-rate', cc: CC_LFO2_RATE, value: 64 }
 ];
 
 // ---------------------------------------------------------------------------- //
