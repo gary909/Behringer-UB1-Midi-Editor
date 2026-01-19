@@ -69,28 +69,37 @@ const ALL_PATCH_CONTROLS = [
     { id: 'osc-aux-type', cc: CC_AUX_TYPE, value: 0 },
     { id: 'osc-aux-level', cc: CC_AUX_LEVEL, value: 0 },
     { id: 'osc-noise', cc: CC_NOISE_LEVEL, value: 0 },
+    // OSC 1
     { id: 'osc1-wave', cc: CC_OSC1_WAVE, value: 32 },
     { id: 'osc1-fine', cc: CC_OSC1_FINE, value: 50 },
     { id: 'osc1-coarse', cc: CC_OSC1_COARSE, value: 50 },
     { id: 'osc1-pw', cc: CC_OSC1_PW, value: 0 },
+    // OSC 2
     { id: 'osc2-wave', cc: CC_OSC2_WAVE, value: 32 },
     { id: 'osc2-fine', cc: CC_OSC2_FINE, value: 50 },
     { id: 'osc2-coarse', cc: CC_OSC2_COARSE, value: 50 },
     { id: 'osc2-pw', cc: CC_OSC2_PW, value: 0 },
 
-    // Filter & VCA
-    { id: 'vcf-cutoff', cc: CC_VCF_CUTOFF, value: 50 },
+    // Filter
+    { id: 'vcf-cutoff', cc: CC_VCF_CUTOFF, value: 127 },
     { id: 'vcf-res', cc: CC_VCF_RES, value: 0 },
     { id: 'vcf-env-amt', cc: CC_VCF_ENV_AMT, value: 50 },
     { id: 'vcf-osc2-amt', cc: CC_VCF_OSC2_AMT, value: 0 },
-    { id: 'vca-level', cc: CC_VCA_LEVEL, value: 5 },
+
+    // VCA
+    { id: 'vca-level', cc: CC_VCA_LEVEL, value: 127 },
     { id: 'vca-mixer', cc: CC_VCA_MIXER, value: 50 },
 
-    // EGs
-    { id: 'vca-a', cc: CC_VCA_A, value: 0 }, { id: 'vca-d', cc: CC_VCA_D, value: 20 },
-    { id: 'vca-s', cc: CC_VCA_S, value: 127 }, { id: 'vca-r', cc: CC_VCA_R, value: 10 },
-    { id: 'vcf-a', cc: CC_VCF_A, value: 0 }, { id: 'vcf-d', cc: CC_VCF_D, value: 20 },
-    { id: 'vcf-s', cc: CC_VCF_S, value: 0 }, { id: 'vcf-r', cc: CC_VCF_R, value: 10 },
+    // EG VCA
+    { id: 'vca-a', cc: CC_VCA_A, value: 0 }, 
+    { id: 'vca-d', cc: CC_VCA_D, value: 0 },
+    { id: 'vca-s', cc: CC_VCA_S, value: 127 }, 
+    { id: 'vca-r', cc: CC_VCA_R, value: 0 },
+    // EG VCF
+    { id: 'vcf-a', cc: CC_VCF_A, value: 0 }, 
+    { id: 'vcf-d', cc: CC_VCF_D, value: 0 },
+    { id: 'vcf-s', cc: CC_VCF_S, value: 127 }, 
+    { id: 'vcf-r', cc: CC_VCF_R, value: 0 },
 
     // LFO 1
     { id: 'lfo1-wave', cc: CC_LFO1_WAVE, value: 0 },
