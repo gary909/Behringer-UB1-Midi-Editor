@@ -10,7 +10,7 @@ body {
     );
 
     background-size: 100% 20px;
-  box-shadow: inset 0 0 25px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 25px 10px rgba(10, 96, 182, 0.848);
   min-height: 100vh;
   margin: 0;
   font-family: Helvetica, sans-serif;
