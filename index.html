@@ -75,7 +75,7 @@
             </div>
             <div class="parameter-row">
                 <label for="arp-gate">GATE LENGTH</label>
-                <input type="range" id="arp-gate" min="1" max="99" value="50">
+                <input type="range" id="arp-gate" min="1" max="127" value="50">
             </div>
             <div class="parameter-row">
                 <label for="arp-swing">SWING</label>
@@ -104,11 +104,11 @@
             </div>
             <div class="parameter-row">
                 <label for="osc-aux-level">SUB LEVEL</label>
-                <input type="range" id="osc-aux-level" min="0" max="99" value="0">
+                <input type="range" id="osc-aux-level" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
                 <label for="osc-noise">NOISE LEVEL</label>
-                <input type="range" id="osc-noise" min="0" max="99" value="0">
+                <input type="range" id="osc-noise" min="0" max="127" value="0">
             </div>
         </div>
 
@@ -130,7 +130,7 @@
             </div>
             <div class="parameter-row">
                 <label for="osc1-pw">PULSE WIDTH</label>
-                <input type="range" id="osc1-pw" min="0" max="99" value="0">
+                <input type="range" id="osc1-pw" min="0" max="127" value="0">
             </div>
 
         </div>
@@ -153,7 +153,7 @@
             </div>
             <div class="parameter-row">
                 <label for="osc2-pw">PULSE WIDTH</label>
-                <input type="range" id="osc2-pw" min="0" max="99" value="0">
+                <input type="range" id="osc2-pw" min="0" max="127" value="0">
             </div>
 
         </div>
@@ -167,7 +167,7 @@
                     <label for="vcf-cutoff">CUTOFF FREQ</label>
                     <span class="tooltiptext">MIDI CC 74</span>
                 </div> 
-                <input type="range" id="vcf-cutoff" min="0" max="99">
+                <input type="range" id="vcf-cutoff" min="0" max="127">
             </div>
 
             <div class="parameter-row">
@@ -175,7 +175,7 @@
                     <label for="vcf-resonance">RESONANCE</label>
                     <span class="tooltiptext">MIDI CC 71</span>
                 </div> 
-                <input type="range" id="vcf-res" min="0" max="99">
+                <input type="range" id="vcf-res" min="0" max="127">
             </div>    
 
             <div class="parameter-row">
@@ -183,7 +183,7 @@
                     <label for="vcf-env-amount">VCF ENV AMOUNT</label>
                     <span class="tooltiptext">MIDI CC 3</span>
                 </div> 
-                <input type="range" id="vcf-env-amt" min="0" max="99">
+                <input type="range" id="vcf-env-amt" min="0" max="127">
             </div>  
             
             <div class="parameter-row">
@@ -191,7 +191,7 @@
                     <label for="vcf-env-amount">VCF OSC 2 AMOUNT</label>
                     <span class="tooltiptext">MIDI CC 20</span>
                 </div> 
-                <input type="range" id="vcf-osc2-amt" min="0" max="99">
+                <input type="range" id="vcf-osc2-amt" min="0" max="127">
             </div>  
 
         </div>
@@ -214,7 +214,7 @@
                     <label for="lfo1-rate">AMOUNT</label>
                     <span class="tooltiptext">MIDI CC 70</span>
                 </div>  
-                <input type="range" id="lfo1-amt" min="0" max="99">
+                <input type="range" id="lfo1-amt" min="0" max="127">
             </div>
                         
             <div class="parameter-row">
@@ -222,7 +222,7 @@
                     <label for="lfo1-wave">RATE</label>
                     <span class="tooltiptext">MIDI CC 72</span>
                 </div>  
-                <input type="range" id="lfo1-rate" min="0" max="99">
+                <input type="range" id="lfo1-rate" min="0" max="127">
             </div>
 
         </div>
@@ -244,7 +244,7 @@
                     <label for="lfo2-rate">AMOUNT</label>
                     <span class="tooltiptext">MIDI CC 28</span>
                 </div>  
-                <input type="range" id="lfo2-amt" min="0" max="99">
+                <input type="range" id="lfo2-amt" min="0" max="127">
             </div>            
 
             <div class="parameter-row">
@@ -252,7 +252,7 @@
                     <label for="lfo2-wave">RATE</label>
                     <span class="tooltiptext">MIDI CC 73</span>
                 </div>  
-                <input type="range" id="lfo2-rate" min="0" max="99">
+                <input type="range" id="lfo2-rate" min="0" max="127">
             </div>            
         </div>
 
@@ -275,7 +275,7 @@
                     <label for="vcf-decay">VCA MIXER</label>
                     <span class="tooltiptext">MIDI CC 8</span>
                 </div> 
-                <input type="range" id="vca-mixer" min="0" max="99">
+                <input type="range" id="vca-mixer" min="0" max="127">
             </div>          
 
         </div>
@@ -289,7 +289,7 @@
                     <label for="vca-attack">ATTACK</label>
                     <span class="tooltiptext">MIDI CC 81</span>
                 </div>
-                <input type="range" id="vca-a" min="0" max="99">
+                <input type="range" id="vca-a" min="0" max="127">
             </div>
 
             <div class="parameter-row">    
@@ -297,7 +297,7 @@
                     <label for="vca-decay">DECAY</label>
                     <span class="tooltiptext">MIDI CC 82</span>
                 </div>
-                <input type="range" id="vca-d" min="0" max="99">
+                <input type="range" id="vca-d" min="0" max="127">
             </div>
 
             <div class="parameter-row">
@@ -305,7 +305,7 @@
                     <label for="vca-sustain">SUSTAIN</label>
                     <span class="tooltiptext">MIDI CC 83</span>
                 </div>
-                <input type="range" id="vca-s" min="0" max="99">
+                <input type="range" id="vca-s" min="0" max="127">
             </div>
 
             <div class="parameter-row">
@@ -313,7 +313,7 @@
                     <label for="vca-release">RELEASE</label>
                     <span class="tooltiptext">MIDI CC 84</span>
                 </div>                
-                <input type="range" id="vca-r" min="0" max="99">
+                <input type="range" id="vca-r" min="0" max="127">
             </div>
                 
         </div>
@@ -327,7 +327,7 @@
                     <label for="vca-attack">ATTACK</label>
                     <span class="tooltiptext">MIDI CC 85</span>
                 </div>
-                <input type="range" id="vcf-a" min="0" max="99">
+                <input type="range" id="vcf-a" min="0" max="127">
             </div>
 
             <div class="parameter-row">    
@@ -335,7 +335,7 @@
                     <label for="vca-decay">DECAY</label>
                     <span class="tooltiptext">MIDI CC 86</span>
                 </div>
-                <input type="range" id="vcf-d" min="0" max="99">
+                <input type="range" id="vcf-d" min="0" max="127">
             </div>
 
             <div class="parameter-row">
@@ -343,7 +343,7 @@
                     <label for="vca-sustain">SUSTAIN</label>
                     <span class="tooltiptext">MIDI CC 87</span>
                 </div>
-                <input type="range" id="vcf-s" min="0" max="99">
+                <input type="range" id="vcf-s" min="0" max="127">
             </div>
 
             <div class="parameter-row">
@@ -351,7 +351,7 @@
                     <label for="vca-release">RELEASE</label>
                     <span class="tooltiptext">MIDI CC 88</span>
                 </div>                
-                <input type="range" id="vcf-r" min="0" max="99">
+                <input type="range" id="vcf-r" min="0" max="127">
             </div>
                 
         </div>
