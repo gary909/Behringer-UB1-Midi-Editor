@@ -427,6 +427,7 @@ function connectToSelectedOutput(portId, midiAccess) {
 }
 
 function sendMidiCC(cc, val) {
+    console.log(`Sending MIDI CC: ${cc}, Value: ${val}`);
     if (midiOutput) midiOutput.send([0xB0, cc, val]);
 }
 
