@@ -56,6 +56,70 @@ p {
   color: #EAEDEC;
 }
 
+/* ********** HAMBURGER STYLING ******* */
+/* Hamburger Button */
+.hamburger-menu {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Above everything */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+/* Slide-out Panel */
+.side-nav {
+    height: 100%;
+    width: 0; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    overflow-x: hidden;
+    transition: 0.4s; /* Smooth slide effect */
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    color: white;
+}
+
+.side-nav a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #aaa;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    color: #7cb9d3; /* Matches your UI blue */
+}
+
+.side-nav .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+}
+
+.side-nav hr {
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 20px;
+}
+/* ********** END OF HAMBURGER STYLING ******* */
+
 #main-header {
     display: flex;
     justify-content: space-around;

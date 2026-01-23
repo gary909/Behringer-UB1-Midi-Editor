@@ -449,3 +449,34 @@ function randomPatch() {
         sendMidiCC(p.cc, val);
     });
 }
+
+// --- HAMBURGER MENU LOGIC ---
+const hamburger = document.getElementById('hamburger-menu');
+const sideNav = document.getElementById('side-nav');
+const closeBtn = document.getElementById('close-btn');
+const aboutBtn = document.getElementById('about-btn');
+
+// Open Menu
+hamburger.addEventListener('click', () => {
+    sideNav.style.width = "250px";
+});
+
+// Close Menu
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    sideNav.style.width = "0";
+});
+
+// About Alert
+aboutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('UB-1 MICRO MIDI Editor\nVersion 1.0\nCreated for Behringer UB-1 Micro');
+});
+
+// Close menu if clicking anywhere outside the side-nav
+window.addEventListener('click', (e) => {
+    if (e.target !== sideNav && e.target !== hamburger && !hamburger.contains(e.target)) {
+        sideNav.style.width = "0";
+    }
+});
+// --- END OF HAMBURGER MENU LOGIC ---
