@@ -475,8 +475,30 @@ aboutBtn.addEventListener('click', (e) => {
 
 // Close menu if clicking anywhere outside the side-nav
 window.addEventListener('click', (e) => {
-    if (e.target !== sideNav && e.target !== hamburger && !hamburger.contains(e.target)) {
+    // Check if the click was NOT the hamburger AND NOT inside the sideNav
+    if (e.target !== hamburger && !hamburger.contains(e.target) && e.target !== sideNav && !sideNav.contains(e.target)) {
         sideNav.style.width = "0";
     }
 });
 // --- END OF HAMBURGER MENU LOGIC ---
+
+
+// --- START OF ACCORDION LOGIC ---
+const acc = document.getElementsByClassName("accordion-header");
+
+for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        // Toggle "active" class to change the plus/minus icon
+        this.classList.toggle("active");
+
+        // Toggle the actual content panel
+        const panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            // Using scrollHeight allows the panel to grow to the exact size of the text
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+}
+// --- END OF ACCORDION LOGIC ---
