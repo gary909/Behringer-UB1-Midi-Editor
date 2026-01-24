@@ -488,15 +488,18 @@ const acc = document.getElementsByClassName("accordion-header");
 
 for (let i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-        // Toggle "active" class to change the plus/minus icon
-        this.classList.toggle("active");
-
-        // Toggle the actual content panel
         const panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            // Using scrollHeight allows the panel to grow to the exact size of the text
+        const isActive = this.classList.contains("active");
+
+        // 1. Close ALL accordion sections first
+        for (let j = 0; j < acc.length; j++) {
+            acc[j].classList.remove("active");
+            acc[j].nextElementSibling.style.maxHeight = null;
+        }
+
+        // 2. If the one we clicked wasn't already open, open it now
+        if (!isActive) {
+            this.classList.add("active");
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
