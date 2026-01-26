@@ -271,6 +271,27 @@ function updateOsc1Highlight(value) {
     }
 }
 
+// --- OSC 2 WAVEFORM HIGHLIGHT IMAGE UPDATE ---
+function updateOsc2Highlight(value) {
+    const marker = document.getElementById('osc2-marker');
+    if (!marker) return;
+
+    const sectionWidth = 33.33;
+
+    if (value <= 31) {
+        marker.style.display = "none";
+    } else {
+        marker.style.display = "block";
+        marker.style.width = sectionWidth + "%";
+
+        let waveIndex = 0;
+        if (value > 63 && value <= 95) waveIndex = 1;
+        else if (value > 95) waveIndex = 2;
+
+        marker.style.left = (waveIndex * sectionWidth) + "%";
+    }
+}
+
 // ---------------------------------------------------------------------------- //
 // --- INITIALIZATION ---
 if (navigator.requestMIDIAccess) {
@@ -389,8 +410,11 @@ function onMIDISuccess(midiAccess) {
     // ---------------------------------------------------------------------------- //
 
     // --- OSC 2 LISTENERS ---
-    // Waveform selection
-    attachSlider(CC_OSC2_WAVE, 'osc2-wave', getOsc2WaveName);
+    // Waveform selection ^ Highlight Update
+    attachSlider(CC_OSC2_WAVE, 'osc2-wave', (val) => {
+        updateOsc2Highlight(val);
+        return getOsc2WaveName(val);
+    });
 
     // Pitch Tuning (Coarse & Fine)
     attachSlider(CC_OSC2_COARSE, 'osc2-coarse', getOsc2CoarseName);
@@ -467,9 +491,13 @@ function initPatch() {
         if (!el) return;
         if (p.isCheckbox) el.checked = (p.value === 127); else el.value = p.value;
         sendMidiCC(p.cc, p.value);
-        // UPDATE OSC 1 MARKER
+        // UPDATE OSC 1 MARKER:
         if (p.id === 'osc1-wave') {
             updateOsc1Highlight(p.value);
+        }
+        // UPDATE OSC 2 MARKER:
+        if (p.id === 'osc2-wave') {
+            updateOsc2Highlight(p.value);
         }
 
     });
@@ -482,9 +510,13 @@ function randomPatch() {
         const val = p.isCheckbox ? (Math.random() > 0.7 ? 127 : 0) : Math.floor(Math.random() * 128);
         if (p.isCheckbox) el.checked = (val === 127); else el.value = val;
         sendMidiCC(p.cc, val);
-        // UPDATE OSC 1 MARKER        
+        // UPDATE OSC 1 MARKER:       
         if (p.id === 'osc1-wave') {
             updateOsc1Highlight(val);
+        }
+        // UPDATE OSC 2 MARKER:
+        if (p.id === 'osc2-wave') {
+            updateOsc2Highlight(val);
         }
     });
 }
