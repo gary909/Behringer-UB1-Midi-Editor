@@ -292,6 +292,29 @@ function updateOsc2Highlight(value) {
     }
 }
 
+// --- LFO 1 WAVEFORM HIGHLIGHT IMAGE UPDATE ---
+function updateLfo1Highlight(value) {
+    const marker = document.getElementById('lfo1-marker');
+    if (!marker) return;
+
+    // 3 wave sections
+    const sectionWidth = 33.33;
+
+    // Marker is ALWAYS visible for LFO
+    marker.style.display = "block";
+    marker.style.width = sectionWidth + "%";
+
+    // Map CC value → wave index
+    // 0–42   = Saw (0)
+    // 43–85  = Tri (1)
+    // 86–127 = Square (2)
+    let waveIndex = 0;
+    if (value > 42 && value <= 85) waveIndex = 1;
+    else if (value > 85) waveIndex = 2;
+
+    marker.style.left = (waveIndex * sectionWidth) + "%";
+}
+
 // ---------------------------------------------------------------------------- //
 // --- INITIALIZATION ---
 if (navigator.requestMIDIAccess) {
@@ -425,8 +448,11 @@ function onMIDISuccess(midiAccess) {
     // ---------------------------------------------------------------------------- //
 
     // --- LFO 1 LISTENERS ---
-    // Waveform
-    attachSlider(CC_LFO1_WAVE, 'lfo1-wave', getLfo1WaveName);
+    // Waveform + Highlight Update
+    attachSlider(CC_LFO1_WAVE, 'lfo1-wave', (val) => {
+        updateLfo1Highlight(val);
+        return getLfo1WaveName(val);
+    });
 
     // Amount (Intensity)
     attachSlider(CC_LFO1_AMT, 'lfo1-amt', getLfo1AmtName);
@@ -499,7 +525,10 @@ function initPatch() {
         if (p.id === 'osc2-wave') {
             updateOsc2Highlight(p.value);
         }
-
+        // UPDATE LFO 1 MARKER:
+        if (p.id === 'lfo1-wave') {
+            updateLfo1Highlight(p.value);
+        }
     });
 }
 
@@ -517,6 +546,10 @@ function randomPatch() {
         // UPDATE OSC 2 MARKER:
         if (p.id === 'osc2-wave') {
             updateOsc2Highlight(val);
+        }
+        // UPDATE LFO 1 MARKER:
+        if (p.id === 'lfo1-wave') {
+            updateLfo1Highlight(val);
         }
     });
 }
