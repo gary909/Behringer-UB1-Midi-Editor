@@ -467,6 +467,11 @@ function initPatch() {
         if (!el) return;
         if (p.isCheckbox) el.checked = (p.value === 127); else el.value = p.value;
         sendMidiCC(p.cc, p.value);
+        // UPDATE OSC 1 MARKER
+        if (p.id === 'osc1-wave') {
+            updateOsc1Highlight(p.value);
+        }
+
     });
 }
 
