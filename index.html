@@ -30,7 +30,7 @@
         <!-- <a href="#" id="about-btn">UB-1 EDITOR</a> -->
 
         <div class="accordion-item">
-            <button class="accordion-header">MIDI SETUP</button>
+            <button class="accordion-header">ABOUT</button>
             <div class="accordion-content">
                 <p>Ensure your UB-1 is set to receive on the same channel selected here.</p>
                 <p>Current Port: <span id="nav-port-name">None</span></p>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="accordion-item">
-            <button class="accordion-header">ABOUT EDITOR</button>
+            <button class="accordion-header">HOW TO</button>
             <div class="accordion-content">
                 <p>UB-1 MICRO MIDI Editor v1.0</p>
                 <p>Designed for professional sound design and patch management.</p>
@@ -46,9 +46,9 @@
         </div>
 
         <div class="accordion-item">
-            <button class="accordion-header">ABOUT EDITOR</button>
+            <button class="accordion-header">OTHER EDITORS</button>
             <div class="accordion-content">
-                <p>UB-1 MICRO MIDI Editor v1.0</p>
+                <p>JT4000 MIDI EDITOR</p>
                 <p>Designed for professional sound design and patch management.</p>
             </div>
         </div>
@@ -61,10 +61,6 @@
             </div>
         </div>        
 
-        <div>
-            <p>Warning here?</p>
-        </div>
-        
 
     </nav>
 
@@ -168,10 +164,14 @@
         <!-- OSC 1 -->
         <div class="control-box">            
             <h3>OSC 1</h3>
-            <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
+            <div class="wave-display-container">
+                <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
+                <div id="osc1-marker" class="wave-marker"></div>
+            </div>
+
             <div class="parameter-row">
-            <label for="osc1-wave">WAVE</label>
-            <input type="range" id="osc1-wave" min="0" max="127" value="32">
+                <label for="osc1-wave">WAVE</label>
+                <input type="range" id="osc1-wave" min="0" max="127" value="32">
             </div>
             <div class="parameter-row">
                 <label for="osc1-fine">FINE</label>

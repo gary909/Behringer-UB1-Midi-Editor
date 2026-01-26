@@ -244,6 +244,33 @@ function getLfo2RateName(value) {
     return `LFO 2 RATE: ${value}`;
 }
 
+// --- OSC 1 WAVEFORM HIGHLIGHT IMAGE UPDATE ---
+function updateOsc1Highlight(value) {
+    const marker = document.getElementById('osc1-marker');
+    if (!marker) return;
+
+    // 3 wave sections
+    const sectionWidth = 33.33;
+
+    if (value <= 31) {
+        // OSC OFF
+        marker.style.display = "none";
+    } else {
+        marker.style.display = "block";
+        marker.style.width = sectionWidth + "%";
+
+        // Map CC value → wave index
+        // 32–63  = Saw (0)
+        // 64–95  = Tri (1)
+        // 96–127 = Square (2)
+        let waveIndex = 0;
+        if (value > 63 && value <= 95) waveIndex = 1;
+        else if (value > 95) waveIndex = 2;
+
+        marker.style.left = (waveIndex * sectionWidth) + "%";
+    }
+}
+
 // ---------------------------------------------------------------------------- //
 // --- INITIALIZATION ---
 if (navigator.requestMIDIAccess) {
@@ -347,8 +374,11 @@ function onMIDISuccess(midiAccess) {
     // ---------------------------------------------------------------------------- //
 
     // --- OSC 1 LISTENERS ---
-    // Waveform
-    attachSlider(CC_OSC1_WAVE, 'osc1-wave', getOscWaveName);
+    // Waveform + Highlight Update
+    attachSlider(CC_OSC1_WAVE, 'osc1-wave', (val) => {
+        updateOsc1Highlight(val);
+        return getOscWaveName(val);
+    });
 
     // Pitch Tuning
     attachSlider(CC_OSC1_COARSE, 'osc1-coarse', getOscCoarseName);

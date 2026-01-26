@@ -123,6 +123,7 @@ p {
     text-align: center;
     margin-bottom: 10px;
 }
+
 /* ********** END OF HAMBURGER STYLING ******* */
 
 
@@ -405,6 +406,32 @@ input[type="checkbox"] {
     /* You might also want to change the color for emphasis */
     color: #EBA85B !important; 
 }
+
+/* ******************START OF WAVE MARKER STYLES ******************** */
+/* Container for the image and the line */
+.wave-display-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.wave-diagram {
+    display: block;
+    width: 100%; /* Adjust as needed */
+    height: auto;
+}
+
+/* The white highlight line */
+.wave-marker {
+    position: absolute;
+    bottom: 5px; /* near the bottom of image */
+    height: 3px;
+    background-color: #9CA0A8;
+    /* box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); */
+    /* transition: all 0.2s ease; Smooth sliding movement */
+    display: none; /* Hidden by default (Off state) */
+}
+/* ******************END OF WAVE MARKER STYLES ******************** */
 
 /* --- NEW MEDIA QUERY FOR MOBILE VIEW --- */
 @media (max-width: 768px) {
