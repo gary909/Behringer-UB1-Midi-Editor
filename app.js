@@ -453,6 +453,11 @@ function onMIDISuccess(midiAccess) {
         updateLfo1Highlight(val);
         return getLfo1WaveName(val);
     });
+    // Initialize LFO 1 wave marker on page load
+    const lfo1WaveSlider = document.getElementById('lfo1-wave');
+    if (lfo1WaveSlider) {
+        updateLfo1Highlight(parseInt(lfo1WaveSlider.value));
+    }
 
     // Amount (Intensity)
     attachSlider(CC_LFO1_AMT, 'lfo1-amt', getLfo1AmtName);
