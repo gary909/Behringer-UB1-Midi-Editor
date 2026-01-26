@@ -482,6 +482,10 @@ function randomPatch() {
         const val = p.isCheckbox ? (Math.random() > 0.7 ? 127 : 0) : Math.floor(Math.random() * 128);
         if (p.isCheckbox) el.checked = (val === 127); else el.value = val;
         sendMidiCC(p.cc, val);
+        // UPDATE OSC 1 MARKER        
+        if (p.id === 'osc1-wave') {
+            updateOsc1Highlight(val);
+        }
     });
 }
 
