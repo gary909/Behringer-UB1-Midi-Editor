@@ -605,7 +605,7 @@ const aboutBtn = document.getElementById('about-btn');
 
 // Open Menu
 hamburger.addEventListener('click', () => {
-    sideNav.style.width = "250px";
+    sideNav.style.width = "280px";
 });
 
 // Close Menu

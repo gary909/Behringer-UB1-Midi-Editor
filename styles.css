@@ -56,6 +56,13 @@ p {
   color: #EAEDEC;
 }
 
+.side-nav a.linkText {
+    font-family: Helvetica, sans-serif;
+    color: #aaa;
+    font-size: 16px;
+    /* font-weight: ; */
+}
+
 /* ********** HAMBURGER STYLING ******* */
 /* Hamburger Button */
 .hamburger-menu {
@@ -93,13 +100,14 @@ p {
 }
 
 .side-nav a {
-    padding: 15px 25px;
+    padding: 15px 10px 15px 15px; /* top right bottom left */
     text-decoration: none;
     font-size: 18px;
     color: #aaa;
     display: block;
     font-family: 'Orbitron', sans-serif;
     transition: 0.3s;
+    text-align: left;
 }
 
 .side-nav a:hover {
