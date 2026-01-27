@@ -147,6 +147,7 @@ p {
 
 /* ********** Start OF ACCORDION STYLING ********** */
 .accordion-header {
+
     background-color: transparent;
     color: #aaa;
     cursor: pointer;
@@ -177,7 +178,7 @@ p {
 }
 
 .accordion-content {
-    padding: 0 25px;
+    padding: 0 10px;
     background-color: #222;
     max-height: 0;
     overflow: hidden;
