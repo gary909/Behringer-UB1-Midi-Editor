@@ -63,6 +63,16 @@ p {
     /* font-weight: ; */
 }
 
+.nav-note {
+    padding: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.5;
+    /* border-top: 1px solid #333; */
+    /* margin-top: 20px; */
+}
+
 /* ********** HAMBURGER STYLING ******* */
 /* Hamburger Button */
 .hamburger-menu {
