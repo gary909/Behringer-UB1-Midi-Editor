@@ -53,7 +53,7 @@ label {
 }
 
 p {
-  color: #EAEDEC;
+  color: #aaa;
 }
 
 .side-nav a.linkText {
@@ -63,12 +63,17 @@ p {
     /* font-weight: ; */
 }
 
+.guideNote {
+  color: #b7c0d3 !important;
+}
+
 .nav-note {
     padding: 10px;
     font-family: 'Orbitron', sans-serif;
     font-size: 14px;
     color: #aaa;
     line-height: 1.5;
+    justify-content: space-between;
     /* border-top: 1px solid #333; */
     /* margin-top: 20px; */
 }
