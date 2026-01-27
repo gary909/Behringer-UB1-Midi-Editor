@@ -370,6 +370,12 @@ input[type="checkbox"] {
     opacity: 0.9;       /* Optional: softens the image to match the UI */
 }
 
+.side-nav .wavs-diagram {
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .vca-diagram {
     display: block;      /* Required for margin: auto to work */
     margin-left: auto;
