@@ -132,7 +132,7 @@ p {
 .side-nav .close-btn {
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 20px;
     font-size: 36px;
 }
 
