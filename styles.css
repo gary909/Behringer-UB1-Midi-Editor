@@ -98,6 +98,11 @@ p {
     border-radius: 2px;
 }
 
+.hamburger-menu:hover .bar {
+    background-color: #4e5262;
+    cursor: pointer;
+}
+
 /* Slide-out Panel */
 .side-nav {
     height: 100%;
