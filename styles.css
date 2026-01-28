@@ -96,6 +96,7 @@ p {
     height: 4px;
     background-color: #313236;
     border-radius: 2px;
+    transition: background-color 0.3s ease;
 }
 
 .hamburger-menu:hover .bar {
