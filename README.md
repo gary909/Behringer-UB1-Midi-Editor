@@ -2,6 +2,6 @@
 
 Try it here:
 
-https://behringer-ub1-micro-editor.co.uk/
+https://www.behringer-ub1-micro-editor.co.uk/
 
 <img width="1983" height="1159" alt="image" src="https://github.com/user-attachments/assets/0c5b74e5-3e92-4ad1-a14f-0fc0673fcce7" />
