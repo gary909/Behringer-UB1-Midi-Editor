@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://behringer-ub1-micro-editor.co.uk/sitemap.xml
+Sitemap: https://www.behringer-ub1-micro-editor.co.uk/sitemap
