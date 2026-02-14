@@ -56,6 +56,36 @@ p {
   color: #aaa;
 }
 
+#footer-disclaimer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 12px 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  text-align: center;
+  margin: 10px auto 0;
+  margin-bottom: 10px;
+}
+
+#footer-disclaimer p {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-family: 'Orbitron', sans-serif;
+  color: #b7c0d3;
+}
+
+@media (max-width: 768px) {
+  #footer-disclaimer {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  #footer-disclaimer {
+    margin-bottom: 30px;
+  }
+}
+
 .side-nav a.linkText {
     font-family: Helvetica, sans-serif;
     color: #aaa;
