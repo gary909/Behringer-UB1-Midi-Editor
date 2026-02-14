@@ -62,8 +62,8 @@ p {
   border-radius: 8px;
   max-width: 90%;
   text-align: center;
-  margin: 10px auto 0;
-  margin-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #footer-disclaimer p {
@@ -74,15 +74,21 @@ p {
   color: #b7c0d3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   #footer-disclaimer {
-    margin-bottom: 10px;
+    position: relative;
+    margin: 10px auto 0;
+    margin-bottom: 5px;
+    transform: none;
+    left: auto;
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1201px) {
   #footer-disclaimer {
-    margin-bottom: 30px;
+    position: fixed;
+    bottom: 20px;
+    z-index: 999;
   }
 }
 
