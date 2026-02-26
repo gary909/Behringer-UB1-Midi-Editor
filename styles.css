@@ -310,6 +310,22 @@ p {
     background-color: #313236;
 }
 
+body.privacy-page #controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    width: 100%;
+    max-width: 1000px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+body.privacy-page .control-box {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .parameter-row {
     display: flex;
     justify-content: space-between;
