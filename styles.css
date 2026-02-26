@@ -75,6 +75,20 @@ p {
   color: #b7c0d3;
 }
 
+#footer-disclaimer a {
+    color: #EBA85B;
+    text-decoration: none;
+}
+
+#controls a {
+    color: #EBA85B;
+    text-decoration: none;
+}
+
+#controls a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 1200px) {
   #footer-disclaimer {
     position: relative;
