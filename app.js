@@ -602,6 +602,11 @@ const hamburger = document.getElementById('hamburger-menu');
 const sideNav = document.getElementById('side-nav');
 const closeBtn = document.getElementById('close-btn');
 const aboutBtn = document.getElementById('about-btn');
+const versionNumber = document.getElementById('version-number');
+const aboutModal = document.getElementById('about-modal');
+const aboutModalClose = document.getElementById('about-modal-close');
+const footerDisclaimer = document.getElementById('footer-disclaimer');
+const footerDisclaimerClose = document.getElementById('footer-disclaimer-close');
 
 // Open Menu
 hamburger.addEventListener('click', () => {
@@ -614,11 +619,31 @@ closeBtn.addEventListener('click', (e) => {
     sideNav.style.width = "0";
 });
 
-// About Alert
-aboutBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('UB-1 MICRO MIDI Editor\nVersion 1.0\nCreated for Behringer UB-1 Micro');
-});
+function openAboutModal(e) {
+    if (e) e.preventDefault();
+    if (!aboutModal) return;
+    aboutModal.classList.remove('modal-hidden');
+    aboutModal.setAttribute('aria-hidden', 'false');
+}
+
+function closeAboutModal(e) {
+    if (e) e.preventDefault();
+    if (!aboutModal) return;
+    aboutModal.classList.add('modal-hidden');
+    aboutModal.setAttribute('aria-hidden', 'true');
+}
+
+if (aboutBtn) {
+    aboutBtn.addEventListener('click', openAboutModal);
+}
+
+if (versionNumber) {
+    versionNumber.addEventListener('click', openAboutModal);
+}
+
+if (aboutModalClose) {
+    aboutModalClose.addEventListener('click', closeAboutModal);
+}
 
 // Close menu if clicking anywhere outside the side-nav
 window.addEventListener('click', (e) => {
@@ -626,7 +651,17 @@ window.addEventListener('click', (e) => {
     if (e.target !== hamburger && !hamburger.contains(e.target) && e.target !== sideNav && !sideNav.contains(e.target)) {
         sideNav.style.width = "0";
     }
+
+    if (aboutModal && e.target === aboutModal) {
+        closeAboutModal();
+    }
 });
+
+if (footerDisclaimer && footerDisclaimerClose) {
+    footerDisclaimerClose.addEventListener('click', () => {
+        footerDisclaimer.classList.add('is-hidden');
+    });
+}
 // --- END OF HAMBURGER MENU LOGIC ---
 
 

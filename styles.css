@@ -65,10 +65,16 @@ p {
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
+    position: relative;
+}
+
+#footer-disclaimer.is-hidden {
+    display: none;
 }
 
 #footer-disclaimer p {
   margin: 0;
+  padding-right: 10px;
   font-size: 12px;
   letter-spacing: 0.5px;
   font-family: 'Orbitron', sans-serif;
@@ -78,6 +84,107 @@ p {
 #footer-disclaimer a {
     color: #EBA85B;
     text-decoration: none;
+}
+
+#footer-disclaimer-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #b7c0d3;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+#footer-disclaimer-close:hover {
+    color: #EBA85B;
+}
+
+#version-number {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Orbitron', sans-serif;
+    color: #313236;
+    cursor: pointer;
+    text-align: center;
+}
+
+#version-number:hover {
+    color: #4e5262;
+}
+
+#about-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(38, 43, 48, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 16px;
+}
+
+.modal-hidden {
+    display: none !important;
+}
+
+#about-modal-content {
+    position: relative;
+    background-color: #717682;
+    border: 3px solid #585c64;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    padding: 18px 20px 12px;
+    min-width: 260px;
+    width: min(360px, 100%);
+    text-align: center;
+}
+
+#about-modal-content p {
+    margin: 0 0 8px;
+    color: #EAEDEC;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+}
+
+#about-modal-title {
+    color: #EAEDEC;
+    font-size: 16px !important;
+    margin: 0 0 12px !important;
+    background-color: #313236;
+    border-radius: 4px;
+    padding: 6px 8px;
+}
+
+#about-modal-content a {
+    color: #EBA85B;
+    text-decoration: none;
+}
+
+#about-modal-content a:hover {
+    text-decoration: underline;
+}
+
+#about-modal-close {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #EAEDEC;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+#about-modal-close:hover {
+    color: #EBA85B;
 }
 
 #controls a {
@@ -97,6 +204,13 @@ p {
     transform: none;
     left: auto;
   }
+
+    #version-number {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+    }
 }
 
 @media (min-width: 1201px) {
@@ -105,6 +219,15 @@ p {
     bottom: 20px;
     z-index: 999;
   }
+
+    #version-number {
+        position: fixed;
+        left: 50%;
+        bottom: 4px;
+        transform: translateX(-50%);
+        z-index: 999;
+        margin: 0;
+    }
 }
 
 .side-nav a.linkText {
@@ -128,6 +251,33 @@ p {
     justify-content: space-between;
     /* border-top: 1px solid #333; */
     /* margin-top: 20px; */
+}
+
+.nav-note a {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+.nav-note a:hover {
+    color: #aaa;
+}
+
+.side-nav .nav-note a {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    text-align: inherit;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: #aaa;
+}
+
+.side-nav .nav-note a:hover {
+    color: #aaa;
+    text-decoration: underline;
 }
 
 /* ********** HAMBURGER STYLING ******* */
