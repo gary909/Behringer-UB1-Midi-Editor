@@ -600,6 +600,41 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
+.nav-synth-wrap {
+    position: relative;
+    width: 70%;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.nav-synth-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.nav-synth-img--front {
+    position: relative;
+    z-index: 3;
+    opacity: 0.92;
+}
+
+.nav-synth-img--mid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0.4;
+}
+
+.nav-synth-img--back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.2;
+}
+
 .vca-diagram {
     display: block;      /* Required for margin: auto to work */
     margin-left: auto;
