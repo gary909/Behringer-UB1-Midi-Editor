@@ -440,24 +440,45 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
     max-width: 1280px;
     padding: 10px;
 }
 
 .control-box {
     background-color: #717682;
-    border: 3px solid #585c64;
+    border: 3px solid #313236;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
+    min-width: 180px;
+    flex: 1 1 360px;
+    height: 215px; /* Fixed height for consistent layout */
+    box-sizing: border-box;
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-start;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.control-box > img,
+.control-box > .wave-display-container {
+    flex: 0 0 100%;
 }
 
 .control-box h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
+    flex: 0 0 calc(100% + 20px);
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 4px;
+    padding: 6px 10px;
     background-color: #313236;
+    border-radius: 2px 2px 0 0;
 }
 
 body.privacy-page #controls {
@@ -478,16 +499,182 @@ body.privacy-page .control-box {
 
 .parameter-row {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
     align-items: center;
-    margin-bottom: 8px;
+    gap: 7px;
+    position: relative;
+    padding-bottom: 2px;
+    min-width: 38px;
+}
+
+.parameter-row label {
+    font-size: 9px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Decorative tick-mark track behind range sliders */
+.parameter-row:has(input[type="range"])::before {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 98px;
+    background: repeating-linear-gradient(
+        180deg,
+        transparent 0px,
+        transparent 7px,
+        #c7c7c7 7px,
+        #bebdbdd4 8.5px
+    );
+    background-position: 0 -5px;
+    z-index: 0;
+}
+
+.parameter-row:has(input[type="range"])::after {
+    content: "";
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 98px;
+    background: #13171F;
+    z-index: 1;
+}
+
+/* TOGGLE BUTTON */
+.toggle-btn {
+    position: relative;
+    width: 22px;
+    height: 34px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    border: 1px solid #1c222d;
+    background: #2e3240;
+    cursor: pointer;
+    box-shadow:
+        inset 0 0 0 1px rgb(22, 22, 23),
+        inset 0 2px 6px rgba(0, 0, 0, 0.3),
+        0 1px 1px rgba(0, 0, 0, 0.55),
+        0 0 6px 1px rgba(26, 28, 30, 0.4);
+}
+
+.toggle-btn:hover {
+    border-color: #7CB9D3;
+}
+
+.toggle-btn:focus {
+    outline: none;
+}
+
+.toggle-btn:active {
+    transform: translateY(1px);
+}
+
+/* .toggle-btn.is-active {
+    background: #1a1e2a;
+    box-shadow:
+        inset 0 0 0 1px rgb(22, 22, 23),
+        inset 0 3px 8px rgba(0, 0, 0, 0.6);
+} */
+
+.btn-led {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2f1416;
+    border: 1px solid #38181b;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.65);
+}
+
+.toggle-btn.is-active .btn-led {
+    background: radial-gradient(circle at 35% 30%, #ffd8d8 0, #ff6363 25%, #ff2222 58%, #b70808 100%);
+    border-color: #6e1015;
+    box-shadow:
+        0 0 5px rgba(255, 61, 61, 0.85),
+        0 0 1px rgba(255, 152, 152, 0.95);
 }
 
 /* SLIDER STYLING */
 input[type="range"] {
-    width: 90px; 
-    /* writing-mode: vertical-lr; */
-    accent-color: #3c496b; 
+    writing-mode: vertical-lr;
+    direction: rtl;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 96px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 22px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 10px;
+    border-radius: 2px;
+    border: 1px solid #0d1018;
+    border-top-color: #5a6070;
+    background: linear-gradient(180deg,
+        #7a8090 0%,
+        #50566a 18%,
+        #2e3248 40%,
+        #222640 43%,
+        #e4e4e8 44%,
+        #e4e4e8 56%,
+        #1e2236 57%,
+        #14182a 80%,
+        #0c1018 100%
+    );
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+input[type="range"]::-moz-range-track {
+    width: 22px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 10px;
+    border-radius: 2px;
+    border: 1px solid #0d1018;
+    border-top-color: #5a6070;
+    background: linear-gradient(180deg,
+        #7a8090 0%,
+        #50566a 18%,
+        #2e3248 40%,
+        #222640 43%,
+        #e4e4e8 44%,
+        #e4e4e8 56%,
+        #1e2236 57%,
+        #14182a 80%,
+        #0c1018 100%
+    );
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* --- Tooltip Styling --- */
@@ -537,6 +724,7 @@ input[type="range"] {
     width: 250px;
     background-color: #262B30;
     color: #51E7FF;
+    text-shadow: rgba(110, 233, 250, 0.5) 1px 0 8px; /* set glow of text */
     font-family: 'VT323', monospace;
     font-size: 1.2em;
     border: 5px solid #313236;
@@ -573,25 +761,19 @@ input[type="checkbox"] {
 }
 
 .envelope-diagram {
-    display: block;      /* Required for margin: auto to work */
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;        /* Makes the image span the width of the control box */
-    height: auto;       /* Maintains aspect ratio */
-    margin-bottom: 15px; /* Space between image and the "VCA EG" text */
-    border-radius: 4px; /* Optional: matches your box styling */
-    opacity: 0.9;       /* Optional: softens the image to match the UI */
+    width: 100%;
+    max-width: 80px;
+    height: 25px;
+    border-radius: 2px;
+    opacity: 0.9;
 }
 
 .wavs-diagram {
-    display: block;      /* Required for margin: auto to work */
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;        /* Makes the image span the width of the control box */
-    height: auto;       /* Maintains aspect ratio */
-    margin-bottom: 10px; /* Space between image and the "VCA EG" text */
-    border-radius: 4px; /* Optional: matches your box styling */
-    opacity: 0.9;       /* Optional: softens the image to match the UI */
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    opacity: 0.9;
 }
 
 .side-nav .wavs-diagram {
@@ -636,25 +818,33 @@ input[type="checkbox"] {
 }
 
 .vca-diagram {
-    display: block;      /* Required for margin: auto to work */
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;        /* Makes the image span the width of the control box */
-    height: auto;       /* Maintains aspect ratio */
-    margin-bottom: 10px; /* Space between image and the "VCA EG" text */
-    border-radius: 4px; /* Optional: matches your box styling */
-    opacity: 0.9;       /* Optional: softens the image to match the UI */
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+.osc-common-diagram {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    opacity: 0.9;
+}
+
+.filter-image-row,
+.diagram-image-row {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: 2px;
 }
 
 .filter-diagram {
-    display: block;      /* Required for margin: auto to work */
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;        /* Makes the image span the width of the control box */
-    height: auto;       /* Maintains aspect ratio */
-    margin-bottom: 10px; /* Space between image and the "VCA EG" text */
-    border-radius: 4px; /* Optional: matches your box styling */
-    opacity: 0.9;       /* Optional: softens the image to match the UI */
+    height: 25px;
+    width: auto;
+    max-width: 100px;
+    border-radius: 4px;
+    opacity: 0.9;
 }
 
 
@@ -699,14 +889,19 @@ input[type="checkbox"] {
 /* ******************START OF WAVE MARKER STYLES ******************** */
 /* Container for the image and the line */
 .wave-display-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.wave-inner {
     position: relative;
-    display: inline-block;
-    width: 100%;
+    width: 120px;
 }
 
 .wave-diagram {
     display: block;
-    width: 100%; /* Adjust as needed */
+    width: 100%;
     height: auto;
 }
 
@@ -715,13 +910,29 @@ input[type="checkbox"] {
     position: absolute;
     bottom: 5px; /* near the bottom of image */
     height: 3px;
-    width: 30% !important;
+    width: 33.33%;
     background-color: #9CA0A8;
     /* box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); */
     /* transition: all 0.2s ease; Smooth sliding movement */
     display: none; /* Hidden by default (Off state) */
 }
 /* ******************END OF WAVE MARKER STYLES ******************** */
+
+/* ---- PER-BOX WIDTH OVERRIDES ----
+   Change flex-basis to set each box's preferred width.
+   flex-grow:1 still applies so boxes fill their row equally.
+   To pin a box to an exact width, also set flex-grow:0.
+------------------------------------------------- */
+#box-arpeggiator { flex-basis: 400px; flex-grow: 0; }
+#box-osc-common  { flex-basis: 330px; flex-grow: 0;  }
+#box-osc1        { flex-basis: 205px; flex-grow: 0;  }
+#box-osc2        { flex-basis: 205px; flex-grow: 0;  }
+#box-filter      { flex-basis: 205px; flex-grow: 0;  }
+#box-lfo1        { flex-basis: 130px; flex-grow: 0; }
+#box-lfo2        { flex-basis: 130px; flex-grow: 0; }
+#box-vca         { flex-basis: 80px; flex-grow: 0; min-width: 130px; }
+#box-vca-eg      { flex-basis: 205px; flex-grow: 0; }
+#box-vcf-eg      { flex-basis: 205px; flex-grow: 0; }
 
 /* --- NEW MEDIA QUERY FOR MOBILE VIEW --- */
 @media (max-width: 768px) {

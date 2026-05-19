@@ -136,157 +136,183 @@
     <div id="controls">
         
         <!-- ARPEGGIATOR -->
-        <div class="control-box">
+        <div class="control-box" id="box-arpeggiator">
             <h3>ARPEGGIATOR</h3>
+            <div class="diagram-image-row"><img src="media/VCA.png" alt="Arpeggiator Diagram" class="vca-diagram"></div>
             <div class="parameter-row">
-                <label for="arp-enable">ON / OFF</label>
-                <input type="checkbox" id="arp-enable">
+                <label for="arp-enable">ON/OFF</label>
+                <button class="toggle-btn" id="arp-enable" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
                 <label for="arp-hold">HOLD</label>
-                <input type="checkbox" id="arp-hold">
+                <button class="toggle-btn" id="arp-hold" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
                 <label for="arp-scale">SCALE</label>
+                <!-- <span class="tooltiptext">ARP SCALE</span> -->
                 <input type="range" id="arp-scale" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
                 <label for="arp-type">TYPE</label>
+                <!-- <span class="tooltiptext">ARP TYPE</span> -->
                 <input type="range" id="arp-type" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="arp-clock-source">CLOCK SOURCE</label>
+                <label for="arp-clock-source">SRC</label>
+                <!-- <span class="tooltiptext">ARP CLOCK SOURCE</span> -->
                 <input type="range" id="arp-clock-source" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="arp-bpm">INTERNAL BPM</label>
+                <label for="arp-bpm">BPM</label>
+                <!-- <span class="tooltiptext">ARP INTERNAL BPM</span> -->
                 <input type="range" id="arp-bpm" min="20" max="240" value="120">
             </div>
             <div class="parameter-row">
-                <label for="arp-gate">GATE LENGTH</label>
+                <label for="arp-gate">GATE</label>
+                <!-- <span class="tooltiptext">ARP GATE LENGTH</span> -->
                 <input type="range" id="arp-gate" min="1" max="127" value="50">
             </div>
             <div class="parameter-row">
-                <label for="arp-swing">SWING</label>
+                <label for="arp-swing">SWNG</label>
+                <!-- <span class="tooltiptext">ARP SWING</span> -->
                 <input type="range" id="arp-swing" min="50" max="75" value="50">
             </div>
         </div>
 
         <!-- OSC COMMON -->
-        <div class="control-box"> 
+        <div class="control-box" id="box-osc-common">
             <h3>OSC COMMON</h3>
+            <div class="diagram-image-row"><img src="media/osc_symb.svg" alt="OSC Symbol" class="osc-common-diagram"></div>
             <div class="parameter-row">
-                <label for="osc-duo">DUO MODE</label>
-                <input type="checkbox" id="osc-duo">
+                <label for="osc-duo">DUO</label>
+                <!-- <span class="tooltiptext">OSC DUO MODE</span> -->
+                <button class="toggle-btn" id="osc-duo" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
-                <label for="osc-octave">OCTAVE</label>
+                <label for="osc-octave">OCT</label>
+                <!-- <span class="tooltiptext">OSC OCTAVE</span> -->
                 <input type="range" id="osc-octave" min="0" max="127" value="64">
             </div>
             <div class="parameter-row">
-                <label for="osc-sync">DCO SYNC</label>
-                <input type="checkbox" id="osc-sync">
+                <label for="osc-sync">SYNC</label>
+                <!-- <span class="tooltiptext">OSC DCO SYNC</span> -->
+                <button class="toggle-btn" id="osc-sync" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
-                <label for="osc-aux-type">NOISE / SUB</label>
+                <label for="osc-aux-type">NSE/SUB</label>
+                <!-- <span class="tooltiptext">OSC NOISE / SUB MODE</span> -->
                 <input type="range" id="osc-aux-type" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="osc-aux-level">SUB LEVEL</label>
+                <label for="osc-aux-level">SUB AMT</label>
+                <!-- <span class="tooltiptext">OSC SUB AMOUNT</span> -->
                 <input type="range" id="osc-aux-level" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="osc-noise">NOISE LEVEL</label>
+                <label for="osc-noise">NSE LVL</label>
+                <!-- <span class="tooltiptext">OSC NOISE LEVEL</span> -->
                 <input type="range" id="osc-noise" min="0" max="127" value="0">
             </div>
         </div>
 
         <!-- OSC 1 -->
-        <div class="control-box">            
+        <div class="control-box" id="box-osc1">
             <h3>OSC 1</h3>
             <div class="wave-display-container">
-                <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
-                <div id="osc1-marker" class="wave-marker"></div>
+                <div class="wave-inner">
+                    <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
+                    <div id="osc1-marker" class="wave-marker"></div>
+                </div>
             </div>
 
             <div class="parameter-row">
                 <label for="osc1-wave">WAVE</label>
+                <!-- <span class="tooltiptext">OSC 1 WAVE Selection</span> -->
                 <input type="range" id="osc1-wave" min="0" max="127" value="32">
             </div>
             <div class="parameter-row">
                 <label for="osc1-fine">FINE</label>
+                <!-- <span class="tooltiptext">OSC 1 FINE Adjustment</span> -->
                 <input type="range" id="osc1-fine" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
                 <label for="osc1-coarse">COARSE</label>
+                <!-- <span class="tooltiptext">OSC 1 COARSE tuning</span> -->
                 <input type="range" id="osc1-coarse" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
-                <label for="osc1-pw">PULSE WIDTH</label>
+                <label for="osc1-pw">PLS WTH</label>
+                <!-- <span class="tooltiptext">OSC 1 PULSE WIDTH</span> -->
                 <input type="range" id="osc1-pw" min="0" max="127" value="0">
             </div>
 
         </div>
 
         <!-- OSC 2 -->
-        <div class="control-box">
+        <div class="control-box" id="box-osc2">
             <h3>OSC 2</h3>
             <div class="wave-display-container">
-                <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
-                <div id="osc2-marker" class="wave-marker"></div>
+                <div class="wave-inner">
+                    <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
+                    <div id="osc2-marker" class="wave-marker"></div>
+                </div>
             </div>
 
             <div class="parameter-row">
                 <label for="osc2-wave">WAVE</label>
+                <!-- <span class="tooltiptext">OSC 2 WAVE Selection</span> -->
                 <input type="range" id="osc2-wave" min="0" max="127" value="32">
             </div>
             <div class="parameter-row">
                 <label for="osc2-fine">FINE</label>
+                <!-- <span class="tooltiptext">OSC 2 FINE Adjustment</span> -->
                 <input type="range" id="osc2-fine" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
                 <label for="osc2-coarse">COARSE</label>
+                <!-- <span class="tooltiptext">OSC 2 COARSE tuning</span> -->
                 <input type="range" id="osc2-coarse" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
-                <label for="osc2-pw">PULSE WIDTH</label>
+                <label for="osc2-pw">PLS WTH</label>
+                <!-- <span class="tooltiptext">OSC 2 PULSE WIDTH</span> -->
                 <input type="range" id="osc2-pw" min="0" max="127" value="0">
             </div>
 
         </div>
 
         <!-- FILTER -->
-        <div class="control-box">
+        <div class="control-box" id="box-filter">
             <h3>FILTER</h3>
-            <img src="media/filter.png" alt="Filter Diagram" class="filter-diagram">
+            <div class="filter-image-row"><img src="media/filter.png" alt="Filter Diagram" class="filter-diagram"></div>
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vcf-cutoff">CUTOFF FREQ</label>
-                    <span class="tooltiptext">MIDI CC 74</span>
+                    <label for="vcf-cutoff">CUTOFF</label>
+                    <span class="tooltiptext">CUTOFF FREQ (MIDI CC 74)</span>
                 </div> 
                 <input type="range" id="vcf-cutoff" min="0" max="127">
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vcf-resonance">RESONANCE</label>
-                    <span class="tooltiptext">MIDI CC 71</span>
+                    <label for="vcf-resonance">RES</label>
+                    <span class="tooltiptext">RESONANCE (MIDI CC 71)</span>
                 </div> 
                 <input type="range" id="vcf-res" min="0" max="127">
             </div>    
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vcf-env-amount">VCF ENV AMOUNT</label>
-                    <span class="tooltiptext">MIDI CC 3</span>
+                    <label for="vcf-env-amount">ENV AMT</label>
+                    <span class="tooltiptext">VCF ENV AMOUNT (MIDI CC 3)</span>
                 </div> 
                 <input type="range" id="vcf-env-amt" min="0" max="127">
             </div>  
             
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vcf-env-amount">VCF OSC 2 AMOUNT</label>
-                    <span class="tooltiptext">MIDI CC 20</span>
+                    <label for="vcf-osc2-amount">OSC2 AMT</label>
+                    <span class="tooltiptext">VCF OSC 2 AMOUNT (MIDI CC 20)</span>
                 </div> 
                 <input type="range" id="vcf-osc2-amt" min="0" max="127">
             </div>  
@@ -295,12 +321,14 @@
         
 
         <!-- LFO 1 -->
-        <div class="control-box">
+        <div class="control-box" id="box-lfo1">
             <h3>LFO 1</h3>
 
             <div class="wave-display-container">
-                <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
-                <div id="lfo1-marker" class="wave-marker"></div>
+                <div class="wave-inner">
+                    <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
+                    <div id="lfo1-marker" class="wave-marker"></div>
+                </div>
             </div>
 
             <div class="parameter-row">
@@ -330,26 +358,28 @@
         </div>
 
         <!-- LFO 2 -->
-        <div class="control-box">
+        <div class="control-box" id="box-lfo2">
             <h3>LFO 2</h3>
 
             <div class="wave-display-container">
-                <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
-                <div id="lfo2-marker" class="wave-marker"></div>
+                <div class="wave-inner">
+                    <img src="media/wavs.png" alt="Wave Selection" class="wavs-diagram">
+                    <div id="lfo2-marker" class="wave-marker"></div>
+                </div>
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
                     <label for="lfo2-amount">WAVE</label>
-                    <span class="tooltiptext">MIDI CC 31</span>
+                    <span class="tooltiptext">LFO 2 WAVE (MIDI CC 31)</span>
                 </div>  
                 <input type="range" id="lfo2-wave" min="0" max="127">
             </div>            
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="lfo2-rate">AMOUNT</label>
-                    <span class="tooltiptext">MIDI CC 28</span>
+                    <label for="lfo2-rate">AMNT</label>
+                    <span class="tooltiptext">LFO 2 AMOUNT (MIDI CC 28)</span>
                 </div>  
                 <input type="range" id="lfo2-amt" min="0" max="127">
             </div>            
@@ -357,7 +387,7 @@
             <div class="parameter-row">
                 <div class="tooltip">
                     <label for="lfo2-wave">RATE</label>
-                    <span class="tooltiptext">MIDI CC 73</span>
+                    <span class="tooltiptext">LFO 2 RATE (MIDI CC 73)</span>
                 </div>  
                 <input type="range" id="lfo2-rate" min="0" max="127">
             </div>            
@@ -366,21 +396,21 @@
 
 
         <!-- VCA -->
-        <div class="control-box">
+        <div class="control-box" id="box-vca">
             <h3>VCA</h3>
-            <img src="media/VCA.png" alt="vca image" class="vca-diagram">
+            <div class="diagram-image-row"><img src="media/VCA.png" alt="vca image" class="vca-diagram"></div>
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vcf-attack">VCA LEVEL</label>
-                    <span class="tooltiptext">MIDI CC 7</span>
+                    <label for="vcf-attack">LVL</label>
+                    <span class="tooltiptext">VCA LEVEL (MIDI CC 7)</span>
                 </div> 
                 <input type="range" id="vca-level" min="0" max="127">
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vcf-decay">VCA MIXER</label>
-                    <span class="tooltiptext">MIDI CC 8</span>
+                    <label for="vcf-decay">MXR</label>
+                    <span class="tooltiptext">VCA MIXER (MIDI CC 8)</span>
                 </div> 
                 <input type="range" id="vca-mixer" min="0" max="127">
             </div>          
@@ -388,37 +418,37 @@
         </div>
 
         <!-- VCA EG -->
-        <div class="control-box">
+        <div class="control-box" id="box-vca-eg">
             <h3>VCA EG</h3>
-            <img src="media/ADSR.png" alt="ADSR Envelope Diagram" class="envelope-diagram">
+            <div class="diagram-image-row"><img src="media/ADSR.png" alt="ADSR Envelope Diagram" class="envelope-diagram"></div>
             <div class="parameter-row">                
                 <div class="tooltip">
-                    <label for="vca-attack">ATTACK</label>
-                    <span class="tooltiptext">MIDI CC 81</span>
+                    <label for="vca-attack">ATK</label>
+                    <span class="tooltiptext">ATTACK (MIDI CC 81)</span>
                 </div>
                 <input type="range" id="vca-a" min="0" max="127">
             </div>
 
             <div class="parameter-row">    
                 <div class="tooltip">
-                    <label for="vca-decay">DECAY</label>
-                    <span class="tooltiptext">MIDI CC 82</span>
+                    <label for="vca-decay">DEC</label>
+                    <span class="tooltiptext">DECAY (MIDI CC 82)</span>
                 </div>
                 <input type="range" id="vca-d" min="0" max="127">
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vca-sustain">SUSTAIN</label>
-                    <span class="tooltiptext">MIDI CC 83</span>
+                    <label for="vca-sustain">SUS</label>
+                    <span class="tooltiptext">SUSTAIN (MIDI CC 83)</span>
                 </div>
                 <input type="range" id="vca-s" min="0" max="127">
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vca-release">RELEASE</label>
-                    <span class="tooltiptext">MIDI CC 84</span>
+                    <label for="vca-release">REL</label>
+                    <span class="tooltiptext">RELEASE (MIDI CC 84)</span>
                 </div>                
                 <input type="range" id="vca-r" min="0" max="127">
             </div>
@@ -426,37 +456,37 @@
         </div>
 
         <!-- VCF EG -->
-        <div class="control-box">
+        <div class="control-box" id="box-vcf-eg">
             <h3>VCF EG</h3>
-            <img src="media/ADSR.png" alt="ADSR Envelope Diagram" class="envelope-diagram">
+            <div class="diagram-image-row"><img src="media/ADSR.png" alt="ADSR Envelope Diagram" class="envelope-diagram"></div>
             <div class="parameter-row">                
                 <div class="tooltip">
-                    <label for="vca-attack">ATTACK</label>
-                    <span class="tooltiptext">MIDI CC 85</span>
+                    <label for="vcf-attack">ATK</label>
+                    <span class="tooltiptext">ATTACK (MIDI CC 85)</span>
                 </div>
                 <input type="range" id="vcf-a" min="0" max="127">
             </div>
 
             <div class="parameter-row">    
                 <div class="tooltip">
-                    <label for="vca-decay">DECAY</label>
-                    <span class="tooltiptext">MIDI CC 86</span>
+                    <label for="vcf-decay">DEC</label>
+                    <span class="tooltiptext">DECAY (MIDI CC 86)</span>
                 </div>
                 <input type="range" id="vcf-d" min="0" max="127">
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vca-sustain">SUSTAIN</label>
-                    <span class="tooltiptext">MIDI CC 87</span>
+                    <label for="vcf-sustain">SUS</label>
+                    <span class="tooltiptext">SUSTAIN (MIDI CC 87)</span>
                 </div>
                 <input type="range" id="vcf-s" min="0" max="127">
             </div>
 
             <div class="parameter-row">
                 <div class="tooltip">
-                    <label for="vca-release">RELEASE</label>
-                    <span class="tooltiptext">MIDI CC 88</span>
+                    <label for="vcf-release">REL</label>
+                    <span class="tooltiptext">RELEASE (MIDI CC 88)</span>
                 </div>                
                 <input type="range" id="vcf-r" min="0" max="127">
             </div>

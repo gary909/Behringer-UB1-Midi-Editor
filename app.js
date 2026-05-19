@@ -373,9 +373,13 @@ function onMIDISuccess(midiAccess) {
     };
 
     const attachCheck = (ccNumber, elementId) => {
-        const check = document.getElementById(elementId);
-        if (check) {
-            check.addEventListener('change', (e) => sendMidiCC(ccNumber, e.target.checked ? 127 : 0));
+        const btn = document.getElementById(elementId);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const isActive = btn.classList.toggle('is-active');
+                btn.setAttribute('aria-pressed', isActive);
+                sendMidiCC(ccNumber, isActive ? 127 : 0);
+            });
         }
     };
 
@@ -383,10 +387,11 @@ function onMIDISuccess(midiAccess) {
     // Arpeggiator On/Off feedback
     const arpEnable = document.getElementById('arp-enable');
     if (arpEnable && statusElement) {
-        arpEnable.addEventListener('change', (e) => {
-            const val = e.target.checked ? 127 : 0;
+        arpEnable.addEventListener('click', () => {
+            const isActive = arpEnable.classList.toggle('is-active');
+            arpEnable.setAttribute('aria-pressed', isActive);
+            const val = isActive ? 127 : 0;
             sendMidiCC(CC_ARP_ENABLE, val);
-            // Show the status on the "screen"
             statusElement.options[statusElement.selectedIndex].textContent = getArpEnableName(val);
         });
     }
@@ -394,10 +399,11 @@ function onMIDISuccess(midiAccess) {
     // Arpeggiator Hold feedback
     const arpHold = document.getElementById('arp-hold');
     if (arpHold && statusElement) {
-        arpHold.addEventListener('change', (e) => {
-            const val = e.target.checked ? 127 : 0;
+        arpHold.addEventListener('click', () => {
+            const isActive = arpHold.classList.toggle('is-active');
+            arpHold.setAttribute('aria-pressed', isActive);
+            const val = isActive ? 127 : 0;
             sendMidiCC(CC_ARP_HOLD, val);
-            // Show the status on the "screen"
             statusElement.options[statusElement.selectedIndex].textContent = getArpHoldName(val);
         });
     }
@@ -412,18 +418,21 @@ function onMIDISuccess(midiAccess) {
     // Osc Common Checkboxes
     const duoCheck = document.getElementById('osc-duo');
     if (duoCheck) {
-        duoCheck.addEventListener('change', (e) => {
-            const val = e.target.checked ? 127 : 0;
+        duoCheck.addEventListener('click', () => {
+            const isActive = duoCheck.classList.toggle('is-active');
+            duoCheck.setAttribute('aria-pressed', isActive);
+            const val = isActive ? 127 : 0;
             sendMidiCC(CC_DUO_MODE, val);
             statusElement.options[statusElement.selectedIndex].textContent = getDuoModeName(val);
-            // Reset status text after a moment if you prefer, or leave it
         });
     }
 
     const syncCheck = document.getElementById('osc-sync');
     if (syncCheck) {
-        syncCheck.addEventListener('change', (e) => {
-            const val = e.target.checked ? 127 : 0;
+        syncCheck.addEventListener('click', () => {
+            const isActive = syncCheck.classList.toggle('is-active');
+            syncCheck.setAttribute('aria-pressed', isActive);
+            const val = isActive ? 127 : 0;
             sendMidiCC(CC_DCO_SYNC, val);
             statusElement.options[statusElement.selectedIndex].textContent = getDCOSyncName(val);
         });
@@ -550,7 +559,12 @@ function initPatch() {
     ALL_PATCH_CONTROLS.forEach(p => {
         const el = document.getElementById(p.id);
         if (!el) return;
-        if (p.isCheckbox) el.checked = (p.value === 127); else el.value = p.value;
+        if (p.isCheckbox) {
+            el.classList.toggle('is-active', p.value === 127);
+            el.setAttribute('aria-pressed', p.value === 127);
+        } else {
+            el.value = p.value;
+        }
         sendMidiCC(p.cc, p.value);
         // UPDATE OSC 1 MARKER:
         if (p.id === 'osc1-wave') {
@@ -576,7 +590,12 @@ function randomPatch() {
         const el = document.getElementById(p.id);
         if (!el) return;
         const val = p.isCheckbox ? (Math.random() > 0.7 ? 127 : 0) : Math.floor(Math.random() * 128);
-        if (p.isCheckbox) el.checked = (val === 127); else el.value = val;
+        if (p.isCheckbox) {
+            el.classList.toggle('is-active', val === 127);
+            el.setAttribute('aria-pressed', val === 127);
+        } else {
+            el.value = val;
+        }
         sendMidiCC(p.cc, val);
         // UPDATE OSC 1 MARKER:       
         if (p.id === 'osc1-wave') {
