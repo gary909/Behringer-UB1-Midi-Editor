@@ -148,33 +148,45 @@
                 <button class="toggle-btn" id="arp-hold" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
-                <label for="arp-scale">SCALE</label>
-                <!-- <span class="tooltiptext">ARP SCALE</span> -->
+                <div class="tooltip">
+                    <label for="arp-scale">SCALE</label>
+                    <span class="tooltiptext">ARP SCALE</span>
+                </div>
                 <input type="range" id="arp-scale" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="arp-type">TYPE</label>
-                <!-- <span class="tooltiptext">ARP TYPE</span> -->
+                <div class="tooltip">
+                    <label for="arp-type">TYPE</label>
+                    <span class="tooltiptext">ARP TYPE</span>
+                </div>
                 <input type="range" id="arp-type" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="arp-clock-source">SRC</label>
-                <!-- <span class="tooltiptext">ARP CLOCK SOURCE</span> -->
+                <div class="tooltip">
+                    <label for="arp-clock-source">SRC</label>
+                    <span class="tooltiptext">ARP CLOCK SOURCE</span>
+                </div>
                 <input type="range" id="arp-clock-source" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="arp-bpm">BPM</label>
-                <!-- <span class="tooltiptext">ARP INTERNAL BPM</span> -->
+                <div class="tooltip">
+                    <label for="arp-bpm">BPM</label>
+                    <span class="tooltiptext">ARP INTERNAL BPM</span>
+                </div>
                 <input type="range" id="arp-bpm" min="20" max="240" value="120">
             </div>
             <div class="parameter-row">
-                <label for="arp-gate">GATE</label>
-                <!-- <span class="tooltiptext">ARP GATE LENGTH</span> -->
+                <div class="tooltip">
+                    <label for="arp-gate">GATE</label>
+                    <span class="tooltiptext">ARP GATE LENGTH</span>
+                </div>
                 <input type="range" id="arp-gate" min="1" max="127" value="50">
             </div>
             <div class="parameter-row">
-                <label for="arp-swing">SWNG</label>
-                <!-- <span class="tooltiptext">ARP SWING</span> -->
+                <div class="tooltip">
+                    <label for="arp-swing">SWNG</label>
+                    <span class="tooltiptext">ARP SWING</span>
+                </div>
                 <input type="range" id="arp-swing" min="50" max="75" value="50">
             </div>
         </div>
@@ -184,33 +196,45 @@
             <h3>OSC COMMON</h3>
             <div class="diagram-image-row"><img src="media/osc_symb.svg" alt="OSC Symbol" class="osc-common-diagram"></div>
             <div class="parameter-row">
-                <label for="osc-duo">DUO</label>
-                <!-- <span class="tooltiptext">OSC DUO MODE</span> -->
+                <div class="tooltip">
+                    <label for="osc-duo">DUO</label>
+                    <span class="tooltiptext">OSC DUO MODE</span>
+                </div>
                 <button class="toggle-btn" id="osc-duo" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
-                <label for="osc-octave">OCT</label>
-                <!-- <span class="tooltiptext">OSC OCTAVE</span> -->
+                <div class="tooltip">
+                    <label for="osc-octave">OCT</label>
+                    <span class="tooltiptext">OSC OCTAVE</span>
+                </div>
                 <input type="range" id="osc-octave" min="0" max="127" value="64">
             </div>
             <div class="parameter-row">
-                <label for="osc-sync">SYNC</label>
-                <!-- <span class="tooltiptext">OSC DCO SYNC</span> -->
+                <div class="tooltip">
+                    <label for="osc-sync">SYNC</label>
+                    <span class="tooltiptext">OSC DCO SYNC</span>
+                </div>
                 <button class="toggle-btn" id="osc-sync" aria-pressed="false"><span class="btn-led"></span></button>
             </div>
             <div class="parameter-row">
-                <label for="osc-aux-type">NSE/SUB</label>
-                <!-- <span class="tooltiptext">OSC NOISE / SUB MODE</span> -->
+                <div class="tooltip">
+                    <label for="osc-aux-type">NSE/SUB</label>
+                    <span class="tooltiptext">OSC NOISE / SUB MODE</span>
+                </div>
                 <input type="range" id="osc-aux-type" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="osc-aux-level">SUB AMT</label>
-                <!-- <span class="tooltiptext">OSC SUB AMOUNT</span> -->
+                <div class="tooltip">
+                    <label for="osc-aux-level">SUB AMT</label>
+                    <span class="tooltiptext">OSC SUB AMOUNT</span>
+                </div>
                 <input type="range" id="osc-aux-level" min="0" max="127" value="0">
             </div>
             <div class="parameter-row">
-                <label for="osc-noise">NSE LVL</label>
-                <!-- <span class="tooltiptext">OSC NOISE LEVEL</span> -->
+                <div class="tooltip">
+                    <label for="osc-noise">NSE LVL</label>
+                    <span class="tooltiptext">OSC NOISE LEVEL</span>
+                </div>
                 <input type="range" id="osc-noise" min="0" max="127" value="0">
             </div>
         </div>
@@ -226,23 +250,31 @@
             </div>
 
             <div class="parameter-row">
-                <label for="osc1-wave">WAVE</label>
-                <!-- <span class="tooltiptext">OSC 1 WAVE Selection</span> -->
+                <div class="tooltip">
+                    <label for="osc1-wave">WAVE</label>
+                    <span class="tooltiptext">OSC 1 WAVE Selection</span>
+                </div>
                 <input type="range" id="osc1-wave" min="0" max="127" value="32">
             </div>
             <div class="parameter-row">
-                <label for="osc1-fine">FINE</label>
-                <!-- <span class="tooltiptext">OSC 1 FINE Adjustment</span> -->
+                <div class="tooltip">
+                    <label for="osc1-fine">FINE</label>
+                    <span class="tooltiptext">OSC 1 FINE Adjustment</span>
+                </div>
                 <input type="range" id="osc1-fine" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
-                <label for="osc1-coarse">COARSE</label>
-                <!-- <span class="tooltiptext">OSC 1 COARSE tuning</span> -->
+                <div class="tooltip">
+                    <label for="osc1-coarse">COARSE</label>
+                    <span class="tooltiptext">OSC 1 COARSE tuning</span>
+                </div>
                 <input type="range" id="osc1-coarse" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
-                <label for="osc1-pw">PLS WTH</label>
-                <!-- <span class="tooltiptext">OSC 1 PULSE WIDTH</span> -->
+                <div class="tooltip">
+                    <label for="osc1-pw">PLS WTH</label>
+                    <span class="tooltiptext">OSC 1 PULSE WIDTH</span>
+                </div>
                 <input type="range" id="osc1-pw" min="0" max="127" value="0">
             </div>
 
@@ -259,23 +291,31 @@
             </div>
 
             <div class="parameter-row">
-                <label for="osc2-wave">WAVE</label>
-                <!-- <span class="tooltiptext">OSC 2 WAVE Selection</span> -->
+                <div class="tooltip">
+                    <label for="osc2-wave">WAVE</label>
+                    <span class="tooltiptext">OSC 2 WAVE Selection</span>
+                </div>
                 <input type="range" id="osc2-wave" min="0" max="127" value="32">
             </div>
             <div class="parameter-row">
-                <label for="osc2-fine">FINE</label>
-                <!-- <span class="tooltiptext">OSC 2 FINE Adjustment</span> -->
+                <div class="tooltip">
+                    <label for="osc2-fine">FINE</label>
+                    <span class="tooltiptext">OSC 2 FINE Adjustment</span>
+                </div>
                 <input type="range" id="osc2-fine" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
-                <label for="osc2-coarse">COARSE</label>
-                <!-- <span class="tooltiptext">OSC 2 COARSE tuning</span> -->
+                <div class="tooltip">
+                    <label for="osc2-coarse">COARSE</label>
+                    <span class="tooltiptext">OSC 2 COARSE tuning</span>
+                </div>
                 <input type="range" id="osc2-coarse" min="0" max="99" value="50">
             </div>
             <div class="parameter-row">
-                <label for="osc2-pw">PLS WTH</label>
-                <!-- <span class="tooltiptext">OSC 2 PULSE WIDTH</span> -->
+                <div class="tooltip">
+                    <label for="osc2-pw">PLS WTH</label>
+                    <span class="tooltiptext">OSC 2 PULSE WIDTH</span>
+                </div>
                 <input type="range" id="osc2-pw" min="0" max="127" value="0">
             </div>
 
@@ -500,16 +540,20 @@
         <p>This software is provided as-is, without warranty of any kind. Use at your own risk. <a href="privacy.html">Privacy &amp; Cookies</a></p>
     </div>
 
-    <div id="version-number">v1.02</div>
+    <div id="version-number">v1.03</div>
 
     <div id="about-modal" class="modal-hidden" aria-hidden="true">
         <div id="about-modal-content" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
             <button id="about-modal-close" aria-label="Close info popup">&times;</button>
             <p id="about-modal-title">UB-1 MICRO MIDI Editor</p>
-            <p>Version 1.02</p>
+            <img src="media/Behringer_Micro_cutout.svg" alt="UB-1 Micro Synth" class="about-modal-synth" style="width: 50%; height: auto; display: block; margin: 8px auto;">
+            <p>Version 1.03</p>
+            <hr>
+            <p>v1.03 Graphics Update</p>
             <p>v1.02 bug fix: VCA Level now 0-99</p>
             <p>v1.01 removed new page links</p>
             <p>v1.0 initial release</p>
+            <hr>
             <p>Created for Behringer UB-1 Micro Synthesizer</p>
             <p><a href="privacy.html">Privacy &amp; Cookies</a></p>
         </div>

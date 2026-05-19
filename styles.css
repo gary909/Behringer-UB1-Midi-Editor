@@ -44,7 +44,7 @@ h3 {
   color: #EAEDEC;
   text-align: center;
   font-family: 'libre-franklin', sans-serif;
-  font-weight: 400;
+  font-weight: 300 !important;
 }
 
 label {
@@ -447,8 +447,8 @@ p {
 
 .control-box {
     background-color: #717682;
-    border: 3px solid #313236;
-    padding: 10px;
+    border: 1px solid #313236;
+    padding: 40px 10px 10px 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
     min-width: 180px;
@@ -456,13 +456,13 @@ p {
     height: 215px; /* Fixed height for consistent layout */
     box-sizing: border-box;
     margin: 10px;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
     align-content: flex-start;
     gap: 4px;
-    overflow: hidden;
 }
 
 .control-box > img,
@@ -471,14 +471,14 @@ p {
 }
 
 .control-box h3 {
-    flex: 0 0 calc(100% + 20px);
-    margin-top: -10px;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
     padding: 6px 10px;
     background-color: #313236;
-    border-radius: 2px 2px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 body.privacy-page #controls {
@@ -824,6 +824,15 @@ input[type="checkbox"] {
     height: auto;
     border-radius: 4px;
     opacity: 0.9;
+}
+
+@keyframes modal-synth-spin {
+    0%   { transform: perspective(400px) rotateY(0deg); }
+    100% { transform: perspective(400px) rotateY(360deg); }
+}
+
+.about-modal-synth {
+    animation: modal-synth-spin 6s linear infinite;
 }
 
 .osc-common-diagram {
