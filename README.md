@@ -4,7 +4,7 @@ Try it here:
 
 https://www.behringer-ub1-micro-editor.co.uk/
 
-<img width="320" height="262" alt="ub1_Spin" src="https://github.com/user-attachments/assets/64c931b1-235f-4a46-b26a-d3724a51ccf1" />
+<img width="120" height="auto" alt="ub1_Spin" src="https://github.com/user-attachments/assets/64c931b1-235f-4a46-b26a-d3724a51ccf1" />
 
 V1.03 Graphics Update
 
